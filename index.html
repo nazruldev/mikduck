@@ -270,20 +270,28 @@
               <p data-i18n="home.f2Body">CPU, RAM, user aktif lewat WebSocket — status live tanpa refresh manual.</p>
             </article>
             <article class="feature">
-              <h3 data-i18n="home.f3Title">Profile &amp; user hotspot</h3>
-              <p data-i18n="home.f3Body">Bandwidth profile, enable/disable user, cookies, DHCP leases, tools.</p>
+              <h3 data-i18n="home.f3Title">Profile hotspot</h3>
+              <p data-i18n="home.f3Body">Validity, rate limit, expired mode (Remove &amp; Record), lock MAC, script on-login.</p>
             </article>
             <article class="feature">
-              <h3 data-i18n="home.f4Title">Finance &amp; multi-router</h3>
-              <p data-i18n="home.f4Body">Rekap penjualan voucher, simpan beberapa router, ganti perangkat cepat.</p>
+              <h3 data-i18n="home.f4Title">Online · Binding · Cookies</h3>
+              <p data-i18n="home.f4Body">Kick user, binding/unbinding MAC, cookies hotspot, copy MAC/IP cepat.</p>
             </article>
             <article class="feature">
-              <h3 data-i18n="home.f5Title">Hak akses granular</h3>
-              <p data-i18n="home.f5Body">Login UAM: batasi generate, hapus, atau print per operator.</p>
+              <h3 data-i18n="home.f5Title">Finance</h3>
+              <p data-i18n="home.f5Body">Income/expense manual + sync script Mikhmon dari router (dedupe ros_key).</p>
             </article>
             <article class="feature">
-              <h3 data-i18n="home.f6Title">Desktop native</h3>
-              <p data-i18n="home.f6Body">Electron + FastAPI + React. Install, connect API :8728, langsung kerja.</p>
+              <h3 data-i18n="home.f6Title">DHCP · Queue · Tools</h3>
+              <p data-i18n="home.f6Body">DHCP leases, queues (read-only), IP services, tools router.</p>
+            </article>
+            <article class="feature">
+              <h3 data-i18n="home.f7Title">Hak akses granular</h3>
+              <p data-i18n="home.f7Body">Login app + role: batasi generate, hapus, print, finance per operator (API-enforced).</p>
+            </article>
+            <article class="feature">
+              <h3 data-i18n="home.f8Title">Multi-router &amp; tema</h3>
+              <p data-i18n="home.f8Body">Simpan beberapa router lokal, Switch Router sheet, Light/Dark · ID/EN.</p>
             </article>
           </div>
         </div>
@@ -293,54 +301,84 @@
         <div class="wrap">
           <header class="section-head reveal">
             <h2 data-i18n="home.vsTitle">mikduck vs MikhMon</h2>
-            <p data-i18n="home.vsLead">Alur kerja familiar — kemasan &amp; pengalaman beda total.</p>
+            <p data-i18n="home.vsLead">Alur hotspot familiar — stack &amp; pengalaman beda total. Tabel fitur operasional:</p>
           </header>
 
-          <div class="versus reveal">
-            <article class="versus-card versus-duck">
-              <div class="versus-top">
-                <img src="./brand/logo-icon-light.png" alt="" width="40" height="40" />
-                <div>
-                  <h3>mikduck</h3>
-                  <p data-i18n="home.vsDuckMeta">Desktop open source · 2026</p>
-                </div>
-              </div>
-              <ul class="versus-points">
-                <li><span class="vs-yes" aria-hidden="true"></span> <span data-i18n="home.vsDuck1">Installer Windows &amp; Linux — tanpa PHP</span></li>
-                <li><span class="vs-yes" aria-hidden="true"></span> <span data-i18n="home.vsDuck2">React + FastAPI + Electron</span></li>
-                <li><span class="vs-yes" aria-hidden="true"></span> <span data-i18n="home.vsDuck3">Dashboard WebSocket realtime</span></li>
-                <li><span class="vs-yes" aria-hidden="true"></span> <span data-i18n="home.vsDuck4">Light/Dark · bahasa ID/EN</span></li>
-                <li><span class="vs-yes" aria-hidden="true"></span> <span data-i18n="home.vsDuck5">Hak akses UAM granular</span></li>
-              </ul>
-              <a class="btn btn-primary" href="./download.html" data-i18n="home.vsDuckCta">Unduh mikduck</a>
-            </article>
-
-            <div class="versus-divider" aria-hidden="true"><span>VS</span></div>
-
-            <article class="versus-card versus-mon">
-              <div class="versus-top">
-                <img
-                  class="versus-mon-logo"
-                  src="./assets/mikhmon-logo.png"
-                  alt="Logo MikhMon"
-                  width="40"
-                  height="40"
-                  decoding="async"
-                />
-                <div>
-                  <h3>MikhMon</h3>
-                  <p data-i18n="home.vsMonMeta">Web PHP klasik · referensi komunitas</p>
-                </div>
-              </div>
-              <ul class="versus-points">
-                <li><span class="vs-note" aria-hidden="true"></span> <span data-i18n="home.vsMon1">Butuh Apache/Nginx + PHP</span></li>
-                <li><span class="vs-note" aria-hidden="true"></span> <span data-i18n="home.vsMon2">PHP + JavaScript di browser</span></li>
-                <li><span class="vs-note" aria-hidden="true"></span> <span data-i18n="home.vsMon3">Live report / polling</span></li>
-                <li><span class="vs-note" aria-hidden="true"></span> <span data-i18n="home.vsMon4">UI web klasik</span></li>
-                <li><span class="vs-note" aria-hidden="true"></span> <span data-i18n="home.vsMon5">Admin-style, matang di lapangan</span></li>
-              </ul>
-              <p class="versus-footnote" data-i18n="home.vsFootnote">mikduck menghormati MikhMon sebagai referensi alur — bukan pengganti wajib.</p>
-            </article>
+          <div class="versus-table-wrap reveal">
+            <table class="versus-table">
+              <thead>
+                <tr>
+                  <th class="col-feat" data-i18n="home.vsColFeature">Fitur</th>
+                  <th>
+                    <img data-brand-icon src="./brand/logo-icon-dark.svg" alt="" width="22" height="22" />
+                    mikduck
+                  </th>
+                  <th>
+                    <img src="./assets/mikhmon-logo.png" alt="" width="22" height="22" />
+                    MikhMon
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="col-feat" data-i18n="home.vsR1">Cara jalan</td>
+                  <td class="yes" data-i18n="home.vsR1d">Desktop installer (Electron) — tanpa PHP</td>
+                  <td class="partial" data-i18n="home.vsR1m">Web + Apache/Nginx + PHP</td>
+                </tr>
+                <tr>
+                  <td class="col-feat" data-i18n="home.vsR2">Generate &amp; print voucher</td>
+                  <td class="yes" data-i18n="home.vsR2d">Ya · Quick Print · template · riwayat</td>
+                  <td class="yes" data-i18n="home.vsR2m">Ya · klasik &amp; matang</td>
+                </tr>
+                <tr>
+                  <td class="col-feat" data-i18n="home.vsR3">Profile hotspot</td>
+                  <td class="yes" data-i18n="home.vsR3d">Ya · Expired / Record / lock MAC</td>
+                  <td class="yes" data-i18n="home.vsR3m">Ya</td>
+                </tr>
+                <tr>
+                  <td class="col-feat" data-i18n="home.vsR4">User online / kick</td>
+                  <td class="yes" data-i18n="home.vsR4d">Ya · WebSocket live</td>
+                  <td class="partial" data-i18n="home.vsR4m">Ya · refresh / polling</td>
+                </tr>
+                <tr>
+                  <td class="col-feat" data-i18n="home.vsR5">MAC binding</td>
+                  <td class="yes" data-i18n="home.vsR5d">Binding / Unbinding di UI</td>
+                  <td class="yes" data-i18n="home.vsR5m">Ya</td>
+                </tr>
+                <tr>
+                  <td class="col-feat" data-i18n="home.vsR6">Finance / report jual</td>
+                  <td class="yes" data-i18n="home.vsR6d">Manual + sync script Mikhmon</td>
+                  <td class="yes" data-i18n="home.vsR6m">Ya (pola komunitas)</td>
+                </tr>
+                <tr>
+                  <td class="col-feat" data-i18n="home.vsR7">Hak akses operator</td>
+                  <td class="yes" data-i18n="home.vsR7d">Role granular di API</td>
+                  <td class="partial" data-i18n="home.vsR7m">Admin-style klasik</td>
+                </tr>
+                <tr>
+                  <td class="col-feat" data-i18n="home.vsR8">Tema &amp; bahasa</td>
+                  <td class="yes" data-i18n="home.vsR8d">Light / Dark / System · ID &amp; EN</td>
+                  <td class="no" data-i18n="home.vsR8m">UI web klasik</td>
+                </tr>
+                <tr>
+                  <td class="col-feat" data-i18n="home.vsR9">DHCP / queue / tools</td>
+                  <td class="yes" data-i18n="home.vsR9d">Ya (terintegrasi di app)</td>
+                  <td class="partial" data-i18n="home.vsR9m">Tergantung setup / plugin</td>
+                </tr>
+                <tr>
+                  <td class="col-feat" data-i18n="home.vsR10">Stack</td>
+                  <td class="yes">Electron · React · FastAPI · SQLite</td>
+                  <td class="partial">PHP · browser</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="source-line reveal" data-i18n="home.vsFootnote">
+            mikduck menghormati MikhMon sebagai referensi alur hotspot — bukan pengganti wajib.
+          </p>
+          <div class="cta-row reveal" style="margin-top: 1.25rem">
+            <a class="btn btn-primary" href="./download.html" data-i18n="home.vsDuckCta">Unduh mikduck</a>
+            <a class="btn btn-outline" href="./demo.html" target="_blank" rel="noopener" data-i18n="home.ctaDemo">Live demo</a>
           </div>
         </div>
       </section>

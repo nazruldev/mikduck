@@ -18,48 +18,68 @@
     { id: 'coffee', href: './coffee.html', key: 'nav.coffee' },
   ]
 
-  function getTheme() {
-    const attr = document.documentElement.getAttribute('data-theme')
-    if (attr === 'dark' || attr === 'light') return attr
+  function getThemePref() {
     try {
       const saved = localStorage.getItem(THEME_KEY)
-      if (saved === 'dark' || saved === 'light') return saved
+      if (saved === 'dark' || saved === 'light' || saved === 'system') return saved
     } catch {
       /* ignore */
     }
     return 'light'
   }
 
+  function getSystemTheme() {
+    try {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+    } catch {
+      return 'light'
+    }
+  }
+
+  function getTheme() {
+    const pref = getThemePref()
+    if (pref === 'system') return getSystemTheme()
+    const attr = document.documentElement.getAttribute('data-theme')
+    if (attr === 'dark' || attr === 'light') return attr
+    return pref === 'dark' ? 'dark' : 'light'
+  }
+
   function logoSrc(theme) {
-    // dark ink on light bg · light ink on dark bg
     return theme === 'dark' ? './brand/logo-horizontal-light.svg' : './brand/logo-horizontal-dark.svg'
   }
 
-  function applyTheme(theme) {
-    const next = theme === 'dark' ? 'dark' : 'light'
-    document.documentElement.setAttribute('data-theme', next)
+  function iconSrc(theme) {
+    return theme === 'dark' ? './brand/logo-icon-light.svg' : './brand/logo-icon-dark.svg'
+  }
+
+  function applyTheme(pref) {
+    const nextPref = pref === 'dark' || pref === 'light' || pref === 'system' ? pref : 'light'
     try {
-      localStorage.setItem(THEME_KEY, next)
+      localStorage.setItem(THEME_KEY, nextPref)
     } catch {
       /* ignore */
     }
-    const src = logoSrc(next)
+    const resolved = nextPref === 'system' ? getSystemTheme() : nextPref
+    document.documentElement.setAttribute('data-theme', resolved)
+    const src = logoSrc(resolved)
+    const icon = iconSrc(resolved)
     document.querySelectorAll('.brand-logo-img').forEach((img) => {
       img.src = src
     })
-    document.querySelectorAll('[data-set-theme]').forEach((btn) => {
-      btn.classList.toggle('is-active', btn.getAttribute('data-set-theme') === next)
-      btn.setAttribute('aria-pressed', btn.getAttribute('data-set-theme') === next ? 'true' : 'false')
+    document.querySelectorAll('[data-brand-icon]').forEach((img) => {
+      img.src = icon
     })
+    const sel = document.querySelector('[data-theme-select]')
+    if (sel && sel.value !== nextPref) sel.value = nextPref
     const meta = document.querySelector('meta[name="theme-color"]')
-    if (meta) meta.content = next === 'dark' ? '#0d1520' : '#f3f6fa'
+    if (meta) meta.content = resolved === 'dark' ? '#0d1520' : '#f3f6fa'
   }
 
   function brand(compact) {
     const size = compact ? 28 : 36
     const src = logoSrc(getTheme())
     return `<a class="brand" href="./index.html" data-i18n-aria="nav.brandHome" aria-label="${t('nav.brandHome')}">
-      <img class="brand-logo-img" src="${src}" alt="mikduck" height="${size}" />
+      <img class="brand-logo-img" src="${src}" alt="mikduck" height="${size}" width="auto" />
     </a>`
   }
 
@@ -73,36 +93,51 @@
   }
 
   function langSwitch() {
-    return `<div class="lang-switch" role="group" data-i18n-aria="common.lang" aria-label="${t('common.lang')}">
-      <button type="button" class="lang-btn" data-set-lang="id" aria-pressed="false">ID</button>
-      <button type="button" class="lang-btn" data-set-lang="en" aria-pressed="false">EN</button>
-    </div>`
+    const locale = i18n?.getLocale?.() || 'id'
+    return `<label class="pref-select">
+      <span class="visually-hidden" data-i18n="common.lang">${t('common.lang')}</span>
+      <select data-lang-select aria-label="${t('common.lang')}">
+        <option value="id"${locale === 'id' ? ' selected' : ''}>🇮🇩 Indonesia</option>
+        <option value="en"${locale === 'en' ? ' selected' : ''}>🇬🇧 English</option>
+      </select>
+    </label>`
   }
 
   function themeSwitch() {
-    const theme = getTheme()
-    return `<div class="theme-switch" role="group" data-i18n-aria="common.theme" aria-label="${t('common.theme')}">
-      <button type="button" class="theme-btn${theme === 'light' ? ' is-active' : ''}" data-set-theme="light" aria-pressed="${theme === 'light' ? 'true' : 'false'}" data-i18n="common.light">${t('common.light')}</button>
-      <button type="button" class="theme-btn${theme === 'dark' ? ' is-active' : ''}" data-set-theme="dark" aria-pressed="${theme === 'dark' ? 'true' : 'false'}" data-i18n="common.dark">${t('common.dark')}</button>
-    </div>`
+    const pref = getThemePref()
+    return `<label class="pref-select">
+      <span class="visually-hidden" data-i18n="common.theme">${t('common.theme')}</span>
+      <select data-theme-select aria-label="${t('common.theme')}">
+        <option value="light"${pref === 'light' ? ' selected' : ''}>☀ ${t('common.light')}</option>
+        <option value="dark"${pref === 'dark' ? ' selected' : ''}>☾ ${t('common.dark')}</option>
+        <option value="system"${pref === 'system' ? ' selected' : ''}>💻 ${t('common.system')}</option>
+      </select>
+    </label>`
   }
 
   function bindLangSwitch(root = document) {
-    root.querySelectorAll('[data-set-lang]').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const lang = btn.getAttribute('data-set-lang')
+    root.querySelectorAll('[data-lang-select]').forEach((sel) => {
+      sel.addEventListener('change', () => {
+        const lang = sel.value
         if (lang && i18n) i18n.setLocale(lang)
       })
     })
   }
 
   function bindThemeSwitch(root = document) {
-    root.querySelectorAll('[data-set-theme]').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const theme = btn.getAttribute('data-set-theme')
-        if (theme) applyTheme(theme)
+    root.querySelectorAll('[data-theme-select]').forEach((sel) => {
+      sel.addEventListener('change', () => {
+        applyTheme(sel.value)
       })
     })
+    try {
+      const mq = window.matchMedia('(prefers-color-scheme: dark)')
+      mq.addEventListener('change', () => {
+        if (getThemePref() === 'system') applyTheme('system')
+      })
+    } catch {
+      /* ignore */
+    }
   }
 
   const chrome = document.querySelector('[data-site-chrome]')
@@ -157,7 +192,7 @@
             <a href="./sponsors.html" data-i18n="footer.sponsors">${t('footer.sponsors')}</a>
             <a href="./pengajuan.html" data-i18n="nav.pengajuan">${t('nav.pengajuan')}</a>
             <a href="./coffee.html" data-i18n="nav.coffee">${t('nav.coffee')}</a>
-            <a href="https://github.com/mikduck/mikduck" rel="noopener noreferrer" target="_blank">GitHub</a>
+            <a href="https://github.com/nazruldev/mikduck" rel="noopener noreferrer" target="_blank">GitHub</a>
           </div>
         </div>
         <p class="footer-copy">© 2026 mikduck · MIT License</p>
