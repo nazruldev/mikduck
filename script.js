@@ -129,24 +129,64 @@
       })
   }
 
+  let apiBase = ''
+
+  function withApiBase(path) {
+    const p = path.startsWith('/') ? path : `/${path}`
+    if (!apiBase) return [p]
+    return [`${apiBase}${p}`, p]
+  }
+
+  async function initApiBase() {
+    const cfg = await fetchJson(['./data/config.json'])
+    const fromQuery = new URLSearchParams(location.search).get('api')
+    let fromStore = ''
+    try {
+      fromStore = localStorage.getItem('mikduck_api_base') || ''
+    } catch {
+      /* ignore */
+    }
+    apiBase = String(fromQuery || fromStore || cfg?.apiBase || '')
+      .trim()
+      .replace(/\/$/, '')
+    if (fromQuery) {
+      try {
+        localStorage.setItem('mikduck_api_base', apiBase)
+      } catch {
+        /* ignore */
+      }
+    }
+  }
+
   async function loadReleases() {
-    const data = await fetchJson(['/api/releases', '/api/releases.json', './data/releases.json'])
+    const data = await fetchJson([
+      ...withApiBase('/api/releases'),
+      './data/releases.json',
+    ])
     if (Array.isArray(data?.releases) && data.releases.length) return data.releases
     const gh = await fetchJson([GH_RELEASES])
     return releasesFromGithub(gh)
   }
 
   async function loadPartners() {
-    const data = await fetchJson(['/api/partners', '/api/partners.json', './data/partners.json'])
+    const data = await fetchJson([
+      ...withApiBase('/api/partners'),
+      './data/partners.json',
+    ])
     return Array.isArray(data?.partners) ? data.partners : []
   }
 
   async function loadSite() {
-    return (await fetchJson(['/api/site', '/api/site.json', './data/site.json'])) || {}
+    return (
+      (await fetchJson([...withApiBase('/api/site'), './data/site.json'])) || {}
+    )
   }
 
   async function loadTimeline() {
-    const data = await fetchJson(['/api/timeline', '/api/timeline.json', './data/timeline.json'])
+    const data = await fetchJson([
+      ...withApiBase('/api/timeline'),
+      './data/timeline.json',
+    ])
     return Array.isArray(data?.items) ? data.items : []
   }
 
@@ -458,7 +498,8 @@
     refreshDynamic()
   })
 
-  Promise.all([loadReleases(), loadPartners(), loadSite(), loadTimeline()])
+  initApiBase()
+    .then(() => Promise.all([loadReleases(), loadPartners(), loadSite(), loadTimeline()]))
     .then(([releases, partners, site, timeline]) => {
       cachedReleases = releases
       cachedPartners = partners

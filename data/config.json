@@ -1,0 +1,4 @@
+{
+  "apiBase": "",
+  "_comment": "Isi apiBase dengan URL tunnel platform, contoh: https://abc123.ngrok-free.app — kosong = pakai GitHub Releases / data/*.json"
+}
