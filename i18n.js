@@ -67,6 +67,7 @@
       'footer.community': 'Komunitas',
       'footer.partners': 'Our Partners',
       'footer.sponsors': 'Sponsorship',
+      'footer.madeIn': 'Made in Indonesia',
 
       'home.heroTitle': 'Kelola hotspot MikroTik tanpa web server',
       'home.heroSubtitle':
@@ -381,6 +382,7 @@
       'footer.community': 'Community',
       'footer.partners': 'Our Partners',
       'footer.sponsors': 'Sponsorship',
+      'footer.madeIn': 'Made in Indonesia',
 
       'home.heroTitle': 'Manage MikroTik hotspots without a web server',
       'home.heroSubtitle':
