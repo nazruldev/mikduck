@@ -61,7 +61,7 @@
       rel="stylesheet"
     />
     <script src="./theme-boot.js"></script>
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./styles.css?v=20260923b" />
 
     <script type="application/ld+json">
 {
@@ -158,8 +158,31 @@
       <section class="section" id="paket">
         <div class="wrap">
           <div class="version-panel reveal" data-version-panel>
-            <div class="download-grid">
-              <a class="download-card" data-dl="win-setup" href="#" rel="noopener noreferrer" target="_blank">
+            <div class="dl-store-block">
+              <p class="dl-path-label" data-i18n="download.pathStore">Microsoft Store</p>
+              <a
+                class="store-card"
+                href="https://apps.microsoft.com/detail/mikduck"
+                rel="noopener noreferrer"
+                target="_blank"
+                data-i18n-aria="download.msStoreAria"
+                aria-label="Get mikduck on Microsoft Store"
+              >
+                <div class="store-card-copy">
+                  <strong data-i18n="download.storeTitle">Unduh dari Store</strong>
+                  <span data-i18n="download.storeLead">Update otomatis via Microsoft Store — Windows 10/11.</span>
+                </div>
+                <span class="store-card-cta">
+                  <img src="./assets/microsoft-store-logo.png" alt="Microsoft Store" width="120" height="40" />
+                  <span class="btn btn-sm btn-primary" data-i18n="download.storeCta">Buka Store</span>
+                </span>
+              </a>
+            </div>
+
+            <p class="dl-or" data-i18n="download.orDirect">atau unduh langsung</p>
+
+            <div class="download-grid download-grid-os">
+              <article class="download-card dl-os-card" data-os-card="windows">
                 <div class="dl-os">
                   <img
                     class="dl-os-icon"
@@ -168,26 +191,26 @@
                     width="28"
                     height="28"
                   />
-                  <span data-i18n="download.winSetup">Windows Setup</span>
+                  <span data-i18n="download.windows">Windows</span>
+                </div>
+                <p class="dl-card-lead" data-i18n="download.windowsLead">Windows 10/11 · x64</p>
+                <div class="dl-fmt" role="group" aria-label="Windows format">
+                  <button type="button" class="dl-fmt-btn is-active" data-dl-fmt="win-setup" data-i18n="download.fmtInstaller">
+                    Installer
+                  </button>
+                  <button type="button" class="dl-fmt-btn" data-dl-fmt="win-portable" data-i18n="download.fmtPortable">
+                    Portable
+                  </button>
                 </div>
                 <strong data-dl-label>mikduck-Setup.exe</strong>
                 <span class="dl-meta" data-dl-meta>Windows 10/11 · x64</span>
-              </a>
-              <a class="download-card" data-dl="win-portable" data-dl-meta-fallback="portable" href="#" rel="noopener noreferrer" target="_blank">
-                <div class="dl-os">
-                  <img
-                    class="dl-os-icon"
-                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/windows8/windows8-original.svg"
-                    alt=""
-                    width="28"
-                    height="28"
-                  />
-                  <span data-i18n="download.winPortable">Windows Portable</span>
-                </div>
-                <strong data-dl-label>mikduck-Portable.exe</strong>
-                <span class="dl-meta" data-dl-meta data-i18n="download.metaPortable">Tanpa install · x64</span>
-              </a>
-              <a class="download-card" data-dl="linux-appimage" data-dl-meta-fallback="appimage" href="#" rel="noopener noreferrer" target="_blank">
+                <a class="btn btn-primary dl-action" data-dl href="#" rel="noopener noreferrer" target="_blank">
+                  <i class="hgi hgi-stroke hgi-download-01" aria-hidden="true"></i>
+                  <span data-i18n="download.cta">Unduh</span>
+                </a>
+              </article>
+
+              <article class="download-card dl-os-card" data-os-card="linux">
                 <div class="dl-os">
                   <img
                     class="dl-os-icon"
@@ -196,54 +219,24 @@
                     width="28"
                     height="28"
                   />
-                  <span data-i18n="download.linuxAppImage">Linux AppImage</span>
+                  <span data-i18n="download.linux">Linux</span>
+                </div>
+                <p class="dl-card-lead" data-i18n="download.linuxLead">Ubuntu &amp; distro modern · x64</p>
+                <div class="dl-fmt" role="group" aria-label="Linux format">
+                  <button type="button" class="dl-fmt-btn is-active" data-dl-fmt="linux-appimage" data-i18n="download.fmtAppImage">
+                    AppImage
+                  </button>
+                  <button type="button" class="dl-fmt-btn" data-dl-fmt="linux-deb" data-i18n="download.fmtDeb">
+                    .deb
+                  </button>
                 </div>
                 <strong data-dl-label>mikduck.AppImage</strong>
                 <span class="dl-meta" data-dl-meta data-i18n="download.metaAppImage">Ubuntu &amp; distro modern · x64</span>
-              </a>
-              <a class="download-card" data-dl="linux-deb" href="#" rel="noopener noreferrer" target="_blank">
-                <div class="dl-os">
-                  <img
-                    class="dl-os-icon"
-                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-plain.svg"
-                    alt=""
-                    width="28"
-                    height="28"
-                  />
-                  <span data-i18n="download.linuxDeb">Linux .deb</span>
-                </div>
-                <strong data-dl-label>mikduck.deb</strong>
-                <span class="dl-meta" data-dl-meta>Debian / Ubuntu · x64</span>
-              </a>
-              <div class="download-card is-soon" aria-disabled="true">
-                <div class="dl-os">
-                  <img
-                    class="dl-os-icon"
-                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apple/apple-original.svg"
-                    alt=""
-                    width="28"
-                    height="28"
-                  />
-                  <span data-i18n="download.mac">macOS</span>
-                </div>
-                <strong data-i18n="download.macBuild">mikduck.dmg</strong>
-                <span class="dl-meta" data-i18n="download.macMeta">Apple Silicon &amp; Intel</span>
-                <span class="badge-soon" data-i18n="common.comingSoon">Coming soon</span>
-              </div>
-            </div>
-
-            <div class="store-row reveal">
-              <a
-                class="store-badge"
-                href="https://apps.microsoft.com/detail/mikduck"
-                rel="noopener noreferrer"
-                target="_blank"
-                data-i18n-aria="download.msStoreAria"
-                aria-label="Get mikduck on Microsoft Store"
-              >
-                <img src="./assets/microsoft-store-logo.png" alt="Microsoft Store" width="120" height="40" />
-                <span data-i18n="download.msStore">Unduh via Microsoft Store</span>
-              </a>
+                <a class="btn btn-primary dl-action" data-dl href="#" rel="noopener noreferrer" target="_blank">
+                  <i class="hgi hgi-stroke hgi-download-01" aria-hidden="true"></i>
+                  <span data-i18n="download.cta">Unduh</span>
+                </a>
+              </article>
             </div>
           </div>
 
@@ -297,8 +290,8 @@
     </main>
 
     <div data-site-footer></div>
-    <script src="./i18n.js"></script>
-    <script src="./chrome.js"></script>
-    <script src="./script.js"></script>
+    <script src="./i18n.js?v=20260923b"></script>
+    <script src="./chrome.js?v=20260923b"></script>
+    <script src="./script.js?v=20260923b"></script>
   </body>
 </html>

@@ -22,7 +22,7 @@
       'meta.faqTitle': 'FAQ mikduck — Install, Connect API MikroTik & Beda dengan MikhMon',
       'meta.faqDesc':
         'Pertanyaan umum mikduck: cara install, connect RouterOS API port 8728, penyimpanan data lokal SQLite, apakah gratis/AGPL-3.0, dan perbedaan dengan MikhMon PHP.',
-      'meta.timelineTitle': 'Timeline & Roadmap mikduck — Rencana Fitur Hotspot MikroTik',
+      'meta.timelineTitle': 'Roadmap mikduck — Rencana Fitur Hotspot MikroTik',
       'meta.timelineDesc':
         'Roadmap mikduck: MVP, stabilisasi, packaging Linux, dan fitur lanjutan untuk aplikasi hotspot manager MikroTik open source.',
       'meta.pengajuanTitle': 'Pengajuan Fitur & Bug — mikduck Hotspot MikroTik',
@@ -53,7 +53,7 @@
       'nav.partners': 'Partners',
       'nav.sponsors': 'Sponsors',
       'nav.faq': 'FAQ',
-      'nav.timeline': 'Timeline',
+      'nav.timeline': 'Roadmap',
       'nav.pengajuan': 'Pengajuan',
       'nav.coffee': 'Buy me a coffee',
       'nav.demo': 'Live demo',
@@ -75,6 +75,23 @@
       'home.ctaDownload': 'Unduh sekarang',
       'home.ctaDemo': 'Live demo',
       'home.meta': 'AGPL-3.0 · Open source · Windows & Linux',
+      'home.metaRest': ' · Open source · Windows & Linux',
+      'home.shotDashboard': 'Dashboard',
+      'home.shotQuickPrint': 'Quick Print',
+      'home.shotFinance': 'Finance',
+      'home.shotVouchers': 'Users / Voucher',
+      'home.shotProfiles': 'User Profile',
+      'home.shotActive': 'Hotspot Active',
+      'home.shotCookies': 'Cookies',
+      'home.shotTplLogin': 'Login Page',
+      'home.shotTplVoucher': 'Cetak Voucher',
+      'home.shotDhcp': 'DHCP Leases',
+      'home.shotQueues': 'Traffic Queue',
+      'home.shotTools': 'Tools',
+      'home.shotServices': 'Services',
+      'home.shotDevice': 'Device',
+      'home.shotSettings': 'Settings',
+      'home.shotPref': 'Preference',
       'home.featuresTitle': 'Apa saja yang bisa dilakukan',
       'home.featuresLead': 'Siap operasional warnet & hotspot harian — tanpa setup PHP/Apache.',
       'home.f1Title': 'Voucher & Quick Print',
@@ -94,7 +111,19 @@
       'home.f8Title': 'Multi-router & tema',
       'home.f8Body': 'Simpan beberapa router lokal, Switch Router sheet, Light/Dark · ID/EN.',
       'home.vsTitle': 'mikduck vs MikhMon',
-      'home.vsLead': 'Alur hotspot familiar — stack & pengalaman beda total. Tabel fitur operasional:',
+      'home.vsLead':
+        'Alur hotspot familiar — tapi cara jalan, stack, dan pengalaman beda. Ringkasannya di bawah.',
+      'home.vsDuckTag': 'Desktop app modern',
+      'home.vsMonTag': 'Web app klasik',
+      'home.vsDuckP1': 'Installer desktop — tanpa PHP / Apache',
+      'home.vsDuckP2': 'Dashboard live WebSocket',
+      'home.vsDuckP3': 'Role operator granular di API',
+      'home.vsDuckP4': 'Light / Dark · ID & EN bawaan',
+      'home.vsMonP1': 'Butuh web server + PHP',
+      'home.vsMonP2': 'Status lewat refresh / polling',
+      'home.vsMonP3': 'Akses admin-style klasik',
+      'home.vsMonP4': 'UI web klasik komunitas',
+      'home.vsMonNote': 'Referensi alur hotspot yang sudah matang di komunitas.',
       'home.vsColFeature': 'Fitur',
       'home.vsR1': 'Cara jalan',
       'home.vsR1d': 'Desktop installer (Electron) — tanpa PHP',
@@ -150,6 +179,20 @@
       'download.winPortable': 'Windows Portable',
       'download.linuxAppImage': 'Linux AppImage',
       'download.linuxDeb': 'Linux .deb',
+      'download.windows': 'Windows',
+      'download.linux': 'Linux',
+      'download.windowsLead': 'Windows 10/11 · x64',
+      'download.linuxLead': 'Ubuntu & distro modern · x64',
+      'download.fmtInstaller': 'Installer',
+      'download.fmtPortable': 'Portable',
+      'download.fmtAppImage': 'AppImage',
+      'download.fmtDeb': '.deb',
+      'download.cta': 'Unduh',
+      'download.pathStore': 'Microsoft Store',
+      'download.storeTitle': 'Unduh dari Store',
+      'download.storeLead': 'Update otomatis via Microsoft Store — Windows 10/11.',
+      'download.storeCta': 'Buka Store',
+      'download.orDirect': 'atau unduh langsung',
       'download.mac': 'macOS',
       'download.macBuild': 'mikduck.dmg',
       'download.macMeta': 'Apple Silicon & Intel',
@@ -157,6 +200,8 @@
       'download.msStoreAria': 'Dapatkan mikduck di Microsoft Store',
       'download.metaPortable': 'Tanpa install · x64',
       'download.metaAppImage': 'Ubuntu & distro modern · x64',
+      'download.metaDeb': 'Debian / Ubuntu · x64',
+      'download.metaSetup': 'Windows 10/11 · x64',
       'download.footerHtml':
         'Catatan perubahan: <a href="./changelog.html">Changelog</a> · build dari sumber: <a href="https://github.com/mikduck/mikduck" rel="noopener noreferrer" target="_blank">repo</a> · unduhan resmi hanya versi terbaru (tidak ada skip versi).',
       'download.stepsTitle': 'Mulai dalam 3 langkah',
@@ -250,13 +295,13 @@
         'Ada skrip reset password lokal di repo (`reset-password`). Jangan share database ke orang lain jika berisi kredensial tersimpan.',
       'faq.q8': 'Linux sudah tersedia?',
       'faq.a8':
-        'Target unduhan Linux ada di halaman Download. Packaging Linux terus dilanjutkan di roadmap — lihat Timeline.',
+        'Target unduhan Linux ada di halaman Download. Packaging Linux terus dilanjutkan di roadmap — lihat Roadmap.',
       'faq.q9': 'Mau minta fitur baru?',
       'faq.a9Html':
         'Isi formulir di <a href="./pengajuan.html">Pengajuan</a> atau buat issue di GitHub. Semakin jelas use-case, semakin mudah diprioritaskan.',
 
       'timeline.eyebrow': 'Perencanaan',
-      'timeline.title': 'Timeline & roadmap',
+      'timeline.title': 'Roadmap',
       'timeline.lead':
         'Empat fase berikutnya sudah pasti (cloud member + marketplace login, PPP, tools++, Android/iOS). Jadwal pengerjaan mengikuti target donasi tiap fase — lihat juga halaman Coffee.',
       'timeline.done': 'Selesai',
@@ -337,7 +382,7 @@
       'meta.faqTitle': 'mikduck FAQ — Install, MikroTik API Connect & vs MikhMon',
       'meta.faqDesc':
         'Common mikduck questions: how to install, connect RouterOS API on port 8728, local SQLite storage, AGPL-3.0/free licensing, and differences from PHP MikhMon.',
-      'meta.timelineTitle': 'mikduck Timeline & Roadmap — Hotspot MikroTik Feature Plans',
+      'meta.timelineTitle': 'mikduck Roadmap — Hotspot MikroTik Feature Plans',
       'meta.timelineDesc':
         'mikduck roadmap: MVP, stabilization, Linux packaging, and upcoming features for the open-source MikroTik hotspot manager.',
       'meta.pengajuanTitle': 'Feature & Bug Requests — mikduck MikroTik Hotspot',
@@ -368,7 +413,7 @@
       'nav.partners': 'Partners',
       'nav.sponsors': 'Sponsors',
       'nav.faq': 'FAQ',
-      'nav.timeline': 'Timeline',
+      'nav.timeline': 'Roadmap',
       'nav.pengajuan': 'Requests',
       'nav.coffee': 'Buy me a coffee',
       'nav.demo': 'Live demo',
@@ -390,6 +435,23 @@
       'home.ctaDownload': 'Download now',
       'home.ctaDemo': 'Live demo',
       'home.meta': 'AGPL-3.0 · Open source · Windows & Linux',
+      'home.metaRest': ' · Open source · Windows & Linux',
+      'home.shotDashboard': 'Dashboard',
+      'home.shotQuickPrint': 'Quick Print',
+      'home.shotFinance': 'Finance',
+      'home.shotVouchers': 'Users / Voucher',
+      'home.shotProfiles': 'User Profile',
+      'home.shotActive': 'Hotspot Active',
+      'home.shotCookies': 'Cookies',
+      'home.shotTplLogin': 'Login Page',
+      'home.shotTplVoucher': 'Voucher Print',
+      'home.shotDhcp': 'DHCP Leases',
+      'home.shotQueues': 'Traffic Queue',
+      'home.shotTools': 'Tools',
+      'home.shotServices': 'Services',
+      'home.shotDevice': 'Device',
+      'home.shotSettings': 'Settings',
+      'home.shotPref': 'Preference',
       'home.featuresTitle': 'What you can do',
       'home.featuresLead': 'Ready for daily warnet & hotspot ops — no PHP/Apache setup.',
       'home.f1Title': 'Vouchers & Quick Print',
@@ -409,7 +471,19 @@
       'home.f8Title': 'Multi-router & theme',
       'home.f8Body': 'Save multiple local routers, Switch Router sheet, Light/Dark · ID/EN.',
       'home.vsTitle': 'mikduck vs MikhMon',
-      'home.vsLead': 'Familiar hotspot workflow — different stack & experience. Feature table:',
+      'home.vsLead':
+        'Familiar hotspot workflow — but how it runs, the stack, and the experience differ. Summary below.',
+      'home.vsDuckTag': 'Modern desktop app',
+      'home.vsMonTag': 'Classic web app',
+      'home.vsDuckP1': 'Desktop installer — no PHP / Apache',
+      'home.vsDuckP2': 'Live WebSocket dashboard',
+      'home.vsDuckP3': 'Granular operator roles in the API',
+      'home.vsDuckP4': 'Light / Dark · ID & EN built-in',
+      'home.vsMonP1': 'Needs a web server + PHP',
+      'home.vsMonP2': 'Status via refresh / polling',
+      'home.vsMonP3': 'Classic admin-style access',
+      'home.vsMonP4': 'Classic community web UI',
+      'home.vsMonNote': 'A mature hotspot workflow reference in the community.',
       'home.vsColFeature': 'Feature',
       'home.vsR1': 'How it runs',
       'home.vsR1d': 'Desktop installer (Electron) — no PHP',
@@ -465,6 +539,20 @@
       'download.winPortable': 'Windows Portable',
       'download.linuxAppImage': 'Linux AppImage',
       'download.linuxDeb': 'Linux .deb',
+      'download.windows': 'Windows',
+      'download.linux': 'Linux',
+      'download.windowsLead': 'Windows 10/11 · x64',
+      'download.linuxLead': 'Ubuntu & modern distros · x64',
+      'download.fmtInstaller': 'Installer',
+      'download.fmtPortable': 'Portable',
+      'download.fmtAppImage': 'AppImage',
+      'download.fmtDeb': '.deb',
+      'download.cta': 'Download',
+      'download.pathStore': 'Microsoft Store',
+      'download.storeTitle': 'Get it from the Store',
+      'download.storeLead': 'Auto-updates via Microsoft Store — Windows 10/11.',
+      'download.storeCta': 'Open Store',
+      'download.orDirect': 'or download directly',
       'download.mac': 'macOS',
       'download.macBuild': 'mikduck.dmg',
       'download.macMeta': 'Apple Silicon & Intel',
@@ -472,6 +560,8 @@
       'download.msStoreAria': 'Get mikduck on the Microsoft Store',
       'download.metaPortable': 'No install · x64',
       'download.metaAppImage': 'Ubuntu & modern distros · x64',
+      'download.metaDeb': 'Debian / Ubuntu · x64',
+      'download.metaSetup': 'Windows 10/11 · x64',
       'download.footerHtml':
         'Release notes: <a href="./changelog.html">Changelog</a> · build from source: <a href="https://github.com/mikduck/mikduck" rel="noopener noreferrer" target="_blank">repo</a> · official downloads are latest-only (no version skip).',
       'download.stepsTitle': 'Get started in 3 steps',
@@ -565,13 +655,13 @@
         'There is a local password-reset script in the repo (`reset-password`). Don’t share the database if it contains stored credentials.',
       'faq.q8': 'Is Linux available?',
       'faq.a8':
-        'Linux download targets are on the Download page. Linux packaging continues on the roadmap — see Timeline.',
+        'Linux download targets are on the Download page. Linux packaging continues on the roadmap — see Roadmap.',
       'faq.q9': 'Want to request a feature?',
       'faq.a9Html':
         'Fill the form on <a href="./pengajuan.html">Requests</a> or open a GitHub issue. Clearer use-cases are easier to prioritize.',
 
       'timeline.eyebrow': 'Planning',
-      'timeline.title': 'Timeline & roadmap',
+      'timeline.title': 'Roadmap',
       'timeline.lead':
         'The next four phases are locked (cloud member panel + login marketplace, PPP, tools++, Android/iOS). Build timing follows each phase’s donation goal — see the Coffee page.',
       'timeline.done': 'Done',
@@ -704,24 +794,11 @@
       btn.setAttribute('aria-pressed', lang === locale ? 'true' : 'false')
     })
 
-    root.querySelectorAll('[data-lang-select]').forEach((sel) => {
-      if (sel.value !== locale) sel.value = locale
+    root.querySelectorAll('[data-lang-badge]').forEach((el) => {
+      el.textContent = locale.toUpperCase()
     })
-
-    root.querySelectorAll('[data-theme-select]').forEach((sel) => {
-      const pref = sel.value
-      const opts = [
-        ['light', `☀ ${t('common.light')}`],
-        ['dark', `☾ ${t('common.dark')}`],
-        ['system', `💻 ${t('common.system')}`],
-      ]
-      opts.forEach(([value, label], i) => {
-        if (sel.options[i]) {
-          sel.options[i].value = value
-          sel.options[i].textContent = label
-        }
-      })
-      sel.value = pref
+    root.querySelectorAll('[data-lang-toggle]').forEach((btn) => {
+      btn.dataset.locale = locale
     })
   }
 

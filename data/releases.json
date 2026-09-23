@@ -1,3 +1,35 @@
 {
-  "releases": []
+  "updatedAt": "2026-09-23T00:00:00.000Z",
+  "releases": [
+    {
+      "version": "1.3.0",
+      "tag": "v1.3.0",
+      "date": "2026-09",
+      "latest": true,
+      "note": "Windows installer & portable, Linux AppImage & .deb.",
+      "notes": [
+        "Windows Setup & Portable",
+        "Linux AppImage & .deb",
+        "Latest-only downloads"
+      ],
+      "files": {
+        "win-setup": {
+          "name": "mikduck-Setup-1.3.0.exe",
+          "url": "https://github.com/nazruldev/mikduck/releases/latest"
+        },
+        "win-portable": {
+          "name": "mikduck-Portable-1.3.0.exe",
+          "url": "https://github.com/nazruldev/mikduck/releases/latest"
+        },
+        "linux-appimage": {
+          "name": "mikduck-1.3.0.AppImage",
+          "url": "https://github.com/nazruldev/mikduck/releases/latest"
+        },
+        "linux-deb": {
+          "name": "mikduck_1.3.0_amd64.deb",
+          "url": "https://github.com/nazruldev/mikduck/releases/latest"
+        }
+      }
+    }
+  ]
 }

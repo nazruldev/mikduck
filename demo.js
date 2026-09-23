@@ -188,8 +188,8 @@
   function applyTheme(theme) {
     root.setAttribute('data-theme', theme)
     localStorage.setItem(THEME_KEY, theme)
-    // light theme → dark ink logo; dark theme → light ink logo
-    const logo = theme === 'light' ? './brand/logo-horizontal-dark.svg' : './brand/logo-horizontal-light.svg'
+    // Same as app: light UI → blue logo, dark UI → white logo
+    const logo = theme === 'light' ? './brand/logo-horizontal-light.png' : './brand/logo-horizontal-dark.png'
     const banner = document.getElementById('banner-logo')
     const app = document.getElementById('app-logo')
     if (banner) banner.src = logo

@@ -2,6 +2,7 @@
   const i18n = window.MikduckI18n
   const t = (key) => (i18n ? i18n.t(key) : key)
   const THEME_KEY = 'mikduck_site_theme'
+  const FAB_POS_KEY = 'mikduck_fab_pos'
 
   const NAV = [
     { id: 'home', href: './index.html', key: 'nav.home' },
@@ -17,6 +18,19 @@
     { id: 'pengajuan', href: './pengajuan.html', key: 'nav.pengajuan' },
     { id: 'coffee', href: './coffee.html', key: 'nav.coffee' },
   ]
+
+  function ensureHugeicons() {
+    if (document.querySelector('link[data-hugeicons]')) return
+    const link = document.createElement('link')
+    link.rel = 'stylesheet'
+    link.href = './vendor/hugeicons/icons.css'
+    link.setAttribute('data-hugeicons', '')
+    document.head.appendChild(link)
+  }
+
+  function hi(name, extra = '') {
+    return `<i class="hgi hgi-stroke hgi-${name}${extra ? ` ${extra}` : ''}" aria-hidden="true"></i>`
+  }
 
   function getThemePref() {
     try {
@@ -45,11 +59,35 @@
   }
 
   function logoSrc(theme) {
-    return theme === 'dark' ? './brand/logo-horizontal-light.svg' : './brand/logo-horizontal-dark.svg'
+    // Same as app MikduckBrand: dark UI → white logo (*-dark.png), light UI → blue logo (*-light.png)
+    return theme === 'dark' ? './brand/logo-horizontal-dark.png' : './brand/logo-horizontal-light.png'
   }
 
   function iconSrc(theme) {
-    return theme === 'dark' ? './brand/logo-icon-light.svg' : './brand/logo-icon-dark.svg'
+    return theme === 'dark' ? './brand/logo-icon-dark.png' : './brand/logo-icon-light.png'
+  }
+
+  function syncThemeUi(pref) {
+    const resolved = pref === 'system' ? getSystemTheme() : pref === 'dark' ? 'dark' : 'light'
+    const fab = document.querySelector('[data-site-fab]')
+    if (!fab) return
+    fab.dataset.theme = resolved
+    const thumb = fab.querySelector('[data-theme-thumb]')
+    if (thumb) {
+      thumb.style.transform = resolved === 'dark' ? 'translateX(100%)' : 'translateX(0)'
+    }
+    const label = fab.querySelector('[data-theme-label]')
+    if (label) {
+      label.textContent = resolved === 'dark' ? t('common.dark') : t('common.light')
+    }
+    const langBtn = fab.querySelector('[data-lang-toggle]')
+    if (langBtn) {
+      const locale = i18n?.getLocale?.() || 'id'
+      langBtn.setAttribute('aria-label', t('common.lang'))
+      langBtn.dataset.locale = locale
+      const badge = langBtn.querySelector('[data-lang-badge]')
+      if (badge) badge.textContent = locale.toUpperCase()
+    }
   }
 
   function applyTheme(pref) {
@@ -69,10 +107,9 @@
     document.querySelectorAll('[data-brand-icon]').forEach((img) => {
       img.src = icon
     })
-    const sel = document.querySelector('[data-theme-select]')
-    if (sel && sel.value !== nextPref) sel.value = nextPref
     const meta = document.querySelector('meta[name="theme-color"]')
     if (meta) meta.content = resolved === 'dark' ? '#0d1520' : '#f3f6fa'
+    syncThemeUi(nextPref)
   }
 
   function brand(compact) {
@@ -92,53 +129,281 @@
       .join('')
   }
 
-  function langSwitch() {
-    const locale = i18n?.getLocale?.() || 'id'
-    return `<label class="pref-select">
-      <span class="visually-hidden" data-i18n="common.lang">${t('common.lang')}</span>
-      <select data-lang-select aria-label="${t('common.lang')}">
-        <option value="id"${locale === 'id' ? ' selected' : ''}>🇮🇩 Indonesia</option>
-        <option value="en"${locale === 'en' ? ' selected' : ''}>🇬🇧 English</option>
-      </select>
-    </label>`
+  function clamp(n, min, max) {
+    return Math.min(max, Math.max(min, n))
   }
 
-  function themeSwitch() {
-    const pref = getThemePref()
-    return `<label class="pref-select">
-      <span class="visually-hidden" data-i18n="common.theme">${t('common.theme')}</span>
-      <select data-theme-select aria-label="${t('common.theme')}">
-        <option value="light"${pref === 'light' ? ' selected' : ''}>☀ ${t('common.light')}</option>
-        <option value="dark"${pref === 'dark' ? ' selected' : ''}>☾ ${t('common.dark')}</option>
-        <option value="system"${pref === 'system' ? ' selected' : ''}>💻 ${t('common.system')}</option>
-      </select>
-    </label>`
-  }
-
-  function bindLangSwitch(root = document) {
-    root.querySelectorAll('[data-lang-select]').forEach((sel) => {
-      sel.addEventListener('change', () => {
-        const lang = sel.value
-        if (lang && i18n) i18n.setLocale(lang)
-      })
-    })
-  }
-
-  function bindThemeSwitch(root = document) {
-    root.querySelectorAll('[data-theme-select]').forEach((sel) => {
-      sel.addEventListener('change', () => {
-        applyTheme(sel.value)
-      })
-    })
+  function loadFabPos() {
     try {
-      const mq = window.matchMedia('(prefers-color-scheme: dark)')
-      mq.addEventListener('change', () => {
-        if (getThemePref() === 'system') applyTheme('system')
-      })
+      const raw = localStorage.getItem(FAB_POS_KEY)
+      if (!raw) return null
+      const pos = JSON.parse(raw)
+      if (typeof pos?.left === 'number' && typeof pos?.top === 'number') return pos
+    } catch {
+      /* ignore */
+    }
+    return null
+  }
+
+  function saveFabPos(left, top) {
+    try {
+      localStorage.setItem(FAB_POS_KEY, JSON.stringify({ left, top }))
     } catch {
       /* ignore */
     }
   }
+
+  function defaultFabPos(fab) {
+    const rect = fab.getBoundingClientRect()
+    return {
+      left: Math.max(12, window.innerWidth - rect.width - 16),
+      top: Math.max(12, window.innerHeight - rect.height - 16),
+    }
+  }
+
+  function placeFab(fab, left, top, persist = true) {
+    const rect = fab.getBoundingClientRect()
+    const maxL = window.innerWidth - rect.width - 12
+    const maxT = window.innerHeight - rect.height - 12
+    const l = clamp(left, 12, Math.max(12, maxL))
+    const tp = clamp(top, 12, Math.max(12, maxT))
+    fab.style.left = `${l}px`
+    fab.style.top = `${tp}px`
+    fab.style.right = 'auto'
+    fab.style.bottom = 'auto'
+    if (persist) saveFabPos(l, tp)
+  }
+
+  function dodgeFabFromDownload(fab) {
+    const targets = document.querySelectorAll('[data-dl-fmt], .dl-action, .store-card')
+    if (!targets.length) {
+      fab.classList.remove('is-pass-through')
+      return
+    }
+    const fr = fab.getBoundingClientRect()
+    const overlaps = (r) =>
+      !(fr.right < r.left || fr.left > r.right || fr.bottom < r.top || fr.top > r.bottom)
+    let hit = false
+    for (const el of targets) {
+      const r = el.getBoundingClientRect()
+      if (r.width <= 0 || r.height <= 0) continue
+      if (overlaps(r)) {
+        hit = true
+        break
+      }
+    }
+    fab.classList.toggle('is-pass-through', hit)
+    if (!hit) return
+
+    const margin = 16
+    const w = fab.offsetWidth
+    const h = fab.offsetHeight
+    const candidates = [
+      { left: window.innerWidth - w - margin, top: window.innerHeight - h - margin },
+      { left: margin, top: window.innerHeight - h - margin },
+      { left: window.innerWidth - w - margin, top: margin },
+      { left: margin, top: margin },
+    ]
+    const stillHits = (left, top) => {
+      const box = { left, top, right: left + w, bottom: top + h }
+      for (const el of targets) {
+        const r = el.getBoundingClientRect()
+        if (r.width <= 0 || r.height <= 0) continue
+        if (!(box.right < r.left || box.left > r.right || box.bottom < r.top || box.top > r.bottom)) {
+          return true
+        }
+      }
+      return false
+    }
+    for (const c of candidates) {
+      const l = clamp(c.left, 12, Math.max(12, window.innerWidth - w - 12))
+      const t = clamp(c.top, 12, Math.max(12, window.innerHeight - h - 12))
+      if (!stillHits(l, t)) {
+        placeFab(fab, l, t, false)
+        fab.classList.remove('is-pass-through')
+        return
+      }
+    }
+  }
+
+  function bindFabDrag(fab) {
+    const handle = fab.querySelector('[data-fab-drag]')
+    if (!handle) return
+    let dragging = false
+    let moved = false
+    let startX = 0
+    let startY = 0
+    let originL = 0
+    let originT = 0
+
+    const onMove = (clientX, clientY) => {
+      if (!dragging) return
+      const dx = clientX - startX
+      const dy = clientY - startY
+      if (Math.abs(dx) > 3 || Math.abs(dy) > 3) moved = true
+      placeFab(fab, originL + dx, originT + dy)
+    }
+
+    const end = () => {
+      if (!dragging) return
+      dragging = false
+      fab.classList.remove('is-dragging')
+      window.removeEventListener('pointermove', onPointerMove)
+      window.removeEventListener('pointerup', end)
+      window.removeEventListener('pointercancel', end)
+    }
+
+    const onPointerMove = (e) => onMove(e.clientX, e.clientY)
+
+    handle.addEventListener('pointerdown', (e) => {
+      if (e.button != null && e.button !== 0) return
+      e.preventDefault()
+      const rect = fab.getBoundingClientRect()
+      dragging = true
+      moved = false
+      startX = e.clientX
+      startY = e.clientY
+      originL = rect.left
+      originT = rect.top
+      fab.classList.add('is-dragging')
+      handle.setPointerCapture?.(e.pointerId)
+      window.addEventListener('pointermove', onPointerMove)
+      window.addEventListener('pointerup', end)
+      window.addEventListener('pointercancel', end)
+    })
+
+    handle.addEventListener('click', (e) => {
+      if (moved) {
+        e.preventDefault()
+        e.stopPropagation()
+      }
+    })
+  }
+
+  function bindThemeSlider(fab) {
+    const track = fab.querySelector('[data-theme-track]')
+    const thumb = fab.querySelector('[data-theme-thumb]')
+    if (!track || !thumb) return
+
+    const setFromRatio = (ratio) => {
+      applyTheme(ratio >= 0.5 ? 'dark' : 'light')
+    }
+
+    const pointerRatio = (clientX) => {
+      const rect = track.getBoundingClientRect()
+      if (rect.width <= 0) return getTheme() === 'dark' ? 1 : 0
+      return clamp((clientX - rect.left) / rect.width, 0, 1)
+    }
+
+    let sliding = false
+
+    const onMove = (e) => {
+      if (!sliding) return
+      const ratio = pointerRatio(e.clientX)
+      thumb.style.transform = `translateX(${ratio * 100}%)`
+      fab.dataset.theme = ratio >= 0.5 ? 'dark' : 'light'
+    }
+
+    const end = (e) => {
+      if (!sliding) return
+      sliding = false
+      fab.classList.remove('is-sliding')
+      setFromRatio(pointerRatio(e.clientX))
+      window.removeEventListener('pointermove', onMove)
+      window.removeEventListener('pointerup', end)
+      window.removeEventListener('pointercancel', end)
+    }
+
+    const start = (e) => {
+      if (e.button != null && e.button !== 0) return
+      e.preventDefault()
+      e.stopPropagation()
+      sliding = true
+      fab.classList.add('is-sliding')
+      onMove(e)
+      window.addEventListener('pointermove', onMove)
+      window.addEventListener('pointerup', end)
+      window.addEventListener('pointercancel', end)
+    }
+
+    track.addEventListener('pointerdown', start)
+    thumb.addEventListener('pointerdown', start)
+
+    fab.querySelector('[data-theme-light]')?.addEventListener('click', (e) => {
+      e.stopPropagation()
+      applyTheme('light')
+    })
+    fab.querySelector('[data-theme-dark]')?.addEventListener('click', (e) => {
+      e.stopPropagation()
+      applyTheme('dark')
+    })
+  }
+
+  function mountFab() {
+    if (document.querySelector('[data-site-fab]')) return
+    const locale = i18n?.getLocale?.() || 'id'
+    const resolved = getTheme()
+    const fab = document.createElement('div')
+    fab.className = 'site-fab'
+    fab.setAttribute('data-site-fab', '')
+    fab.dataset.theme = resolved
+    fab.innerHTML = `
+      <button type="button" class="site-fab-drag" data-fab-drag aria-label="Drag">
+        ${hi('drag-drop-vertical')}
+      </button>
+      <button type="button" class="site-fab-lang" data-lang-toggle data-locale="${locale}" aria-label="${t('common.lang')}">
+        ${hi('language-circle')}
+        <span class="site-fab-lang-badge" data-lang-badge>${locale.toUpperCase()}</span>
+      </button>
+      <div class="theme-slider" role="group" aria-label="${t('common.theme')}">
+        <button type="button" class="theme-slider-ico" data-theme-light aria-label="${t('common.light')}">
+          ${hi('sun-03')}
+        </button>
+        <div class="theme-slider-track" data-theme-track>
+          <span class="theme-slider-thumb" data-theme-thumb></span>
+        </div>
+        <button type="button" class="theme-slider-ico" data-theme-dark aria-label="${t('common.dark')}">
+          ${hi('moon-02')}
+        </button>
+        <span class="visually-hidden" data-theme-label>${resolved === 'dark' ? t('common.dark') : t('common.light')}</span>
+      </div>
+    `
+    document.body.appendChild(fab)
+
+    const saved = loadFabPos()
+    requestAnimationFrame(() => {
+      if (saved && Number.isFinite(saved.left) && Number.isFinite(saved.top)) {
+        placeFab(fab, saved.left, saved.top)
+      } else {
+        const pos = defaultFabPos(fab)
+        placeFab(fab, pos.left, pos.top, false)
+      }
+      dodgeFabFromDownload(fab)
+    })
+
+    fab.querySelector('[data-lang-toggle]')?.addEventListener('click', () => {
+      const cur = i18n?.getLocale?.() || 'id'
+      const next = cur === 'id' ? 'en' : 'id'
+      if (i18n) i18n.setLocale(next)
+      syncThemeUi(getThemePref())
+    })
+
+    bindFabDrag(fab)
+    bindThemeSlider(fab)
+    syncThemeUi(getThemePref())
+
+    const onViewportChange = () => {
+      const rect = fab.getBoundingClientRect()
+      if (fab.style.left) placeFab(fab, rect.left, rect.top, false)
+      dodgeFabFromDownload(fab)
+    }
+    window.addEventListener('resize', onViewportChange)
+    window.addEventListener('scroll', onViewportChange, { passive: true })
+
+    window.addEventListener('mikduck:locale', () => syncThemeUi(getThemePref()))
+  }
+
+  ensureHugeicons()
 
   const chrome = document.querySelector('[data-site-chrome]')
   if (chrome) {
@@ -149,17 +414,13 @@
         ${brand(false)}
         <nav class="nav" data-i18n-aria="nav.main" aria-label="${t('nav.main')}">${navLinks(NAV)}</nav>
         <div class="header-actions">
-          ${langSwitch()}
-          ${themeSwitch()}
           <a class="btn btn-sm btn-ghost-nav" href="./demo.html" target="_blank" rel="noopener noreferrer">
             <span class="live-dot" aria-hidden="true"></span>
             <span data-i18n="nav.demo">${t('nav.demo')}</span>
           </a>
           <a class="btn btn-sm btn-primary" href="./download.html" data-i18n="nav.downloadCta">${t('nav.downloadCta')}</a>
           <button class="nav-toggle" type="button" data-i18n-aria="nav.menu" aria-label="${t('nav.menu')}" aria-expanded="false" data-nav-toggle>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M4 7h16M4 12h16M4 17h16" />
-            </svg>
+            ${hi('menu-01')}
           </button>
         </div>
       </div>
@@ -201,7 +462,15 @@
   }
 
   applyTheme(getTheme())
-  bindLangSwitch()
-  bindThemeSwitch()
+  mountFab()
   if (i18n) i18n.applyI18n(document)
+
+  try {
+    const mq = window.matchMedia('(prefers-color-scheme: dark)')
+    mq.addEventListener('change', () => {
+      if (getThemePref() === 'system') applyTheme('system')
+    })
+  } catch {
+    /* ignore */
+  }
 })()

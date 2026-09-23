@@ -88,8 +88,12 @@
 
   function mapGithubAssetKey(name) {
     const n = String(name || '').toLowerCase()
-    if (n.includes('setup') && n.endsWith('.exe')) return 'win-setup'
-    if (n.includes('portable') && n.endsWith('.exe')) return 'win-portable'
+    if ((n.includes('setup') || n.includes('installer') || n.includes('nsis')) && n.endsWith('.exe')) {
+      return 'win-setup'
+    }
+    if ((n.includes('portable') || (!n.includes('setup') && !n.includes('installer') && !n.includes('nsis'))) && n.endsWith('.exe')) {
+      return 'win-portable'
+    }
     if (n.endsWith('.appimage')) return 'linux-appimage'
     if (n.endsWith('.deb')) return 'linux-deb'
     return null
@@ -196,35 +200,74 @@
 
   function bindDownload(releases) {
     const panel = document.querySelector('[data-version-panel]')
-    if (!panel || !releases.length) return
-    const rel = pickLatestRelease(releases)
-    if (!rel) return
+    if (!panel) return
+    const rel = pickLatestRelease(releases) || { version: '—', files: {} }
 
-    const cards = document.querySelectorAll('[data-dl]')
+    const fileOf = (key) => {
+      const f = rel.files?.[key]
+      if (!f || typeof f !== 'object') return null
+      if (!f.url) return null
+      return f
+    }
 
-    cards.forEach((card) => {
-      const key = card.getAttribute('data-dl')
-      const file = rel.files?.[key]
+    const metaFor = (key) => {
+      if (key === 'win-portable') return `${t('download.metaPortable')} · v${rel.version}`
+      if (key === 'linux-appimage') return `${t('download.metaAppImage')} · v${rel.version}`
+      if (key === 'linux-deb') return `${t('download.metaDeb')} · v${rel.version}`
+      if (key === 'win-setup') return `${t('download.metaSetup')} · v${rel.version}`
+      return `v${rel.version}`
+    }
+
+    const applyCard = (card) => {
+      const active = card.querySelector('.dl-fmt-btn.is-active') || card.querySelector('.dl-fmt-btn')
+      const key = active?.getAttribute('data-dl-fmt')
+      const file = key ? fileOf(key) : null
       const label = card.querySelector('[data-dl-label]')
       const meta = card.querySelector('[data-dl-meta]')
-      if (!file) {
-        card.href = '#'
-        card.classList.add('is-disabled')
-        card.setAttribute('aria-disabled', 'true')
-        if (label) label.textContent = t('common.unavailable')
-        if (meta) meta.textContent = `v${rel.version}`
+      const btn = card.querySelector('[data-dl]')
+
+      card.querySelectorAll('.dl-fmt-btn').forEach((fmtBtn) => {
+        const fmtKey = fmtBtn.getAttribute('data-dl-fmt')
+        const available = Boolean(fileOf(fmtKey))
+        fmtBtn.classList.toggle('is-unavailable', !available)
+        fmtBtn.removeAttribute('disabled')
+        fmtBtn.setAttribute('aria-disabled', available ? 'false' : 'true')
+      })
+
+      if (!file || !btn) {
+        if (btn) {
+          btn.href = '#'
+          btn.classList.add('is-disabled')
+          btn.setAttribute('aria-disabled', 'true')
+        }
+        if (label) {
+          label.textContent = key
+            ? t('common.unavailable')
+            : t('common.unavailable')
+        }
+        if (meta) meta.textContent = key ? metaFor(key) : `v${rel.version}`
         return
       }
-      card.href = file.url
-      card.classList.remove('is-disabled')
-      card.removeAttribute('aria-disabled')
-      if (label) label.textContent = file.name
-      if (meta) {
-        const fallback = card.getAttribute('data-dl-meta-fallback')
-        if (fallback === 'portable') meta.textContent = `${t('download.metaPortable')} · v${rel.version}`
-        else if (fallback === 'appimage') meta.textContent = `${t('download.metaAppImage')} · v${rel.version}`
-        else meta.textContent = `v${rel.version} · ${rel.tag || `v${rel.version}`}`
+
+      btn.href = file.url
+      btn.classList.remove('is-disabled')
+      btn.removeAttribute('aria-disabled')
+      if (label) label.textContent = file.name || key
+      if (meta) meta.textContent = metaFor(key)
+    }
+
+    panel.querySelectorAll('[data-os-card]').forEach((card) => {
+      if (card.dataset.fmtBound !== '1') {
+        card.dataset.fmtBound = '1'
+        card.querySelectorAll('[data-dl-fmt]').forEach((fmtBtn) => {
+          fmtBtn.addEventListener('click', () => {
+            card.querySelectorAll('[data-dl-fmt]').forEach((b) => b.classList.remove('is-active'))
+            fmtBtn.classList.add('is-active')
+            applyCard(card)
+          })
+        })
       }
+      applyCard(card)
     })
   }
 
@@ -491,6 +534,117 @@
       new ResizeObserver(syncWidth).observe(root)
     }
   }
+
+  function initShotCarousel() {
+    const root = document.querySelector('[data-shot-carousel]')
+    if (!root) return
+    const slides = [...root.querySelectorAll('[data-shot-slide]')]
+    const dotsWrap = root.querySelector('[data-shot-dots]')
+    const prevBtn = root.querySelector('[data-shot-prev]')
+    const nextBtn = root.querySelector('[data-shot-next]')
+    if (slides.length < 2) return
+
+    let index = Math.max(
+      0,
+      slides.findIndex((s) => s.classList.contains('is-active')),
+    )
+    let timer = null
+    let paused = false
+
+    const renderDots = () => {
+      if (!dotsWrap) return
+      dotsWrap.innerHTML = slides
+        .map(
+          (_, i) =>
+            `<button type="button" class="shot-dot${i === index ? ' is-active' : ''}" data-shot-goto="${i}" aria-label="Slide ${i + 1}"></button>`,
+        )
+        .join('')
+    }
+
+    const syncSlides = () => {
+      const peek = (index + 1) % slides.length
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('is-active', i === index)
+        slide.classList.toggle('is-peek', i === peek)
+        if (i !== index) slide.classList.remove('is-exit')
+      })
+      renderDots()
+    }
+
+    const go = (next) => {
+      const prev = index
+      index = ((next % slides.length) + slides.length) % slides.length
+      if (prev === index) return
+      slides[prev].classList.add('is-exit')
+      syncSlides()
+      window.setTimeout(() => slides[prev].classList.remove('is-exit'), 500)
+    }
+
+    const start = () => {
+      stop()
+      if (paused) return
+      timer = window.setInterval(() => go(index + 1), 3200)
+    }
+
+    const stop = () => {
+      if (timer) window.clearInterval(timer)
+      timer = null
+    }
+
+    prevBtn?.addEventListener('click', () => {
+      go(index - 1)
+      start()
+    })
+    nextBtn?.addEventListener('click', () => {
+      go(index + 1)
+      start()
+    })
+    dotsWrap?.addEventListener('click', (e) => {
+      const btn = e.target.closest('[data-shot-goto]')
+      if (!btn) return
+      go(Number(btn.getAttribute('data-shot-goto')))
+      start()
+    })
+
+    root.addEventListener('pointerenter', () => {
+      paused = true
+      stop()
+    })
+    root.addEventListener('pointerleave', () => {
+      paused = false
+      start()
+    })
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) stop()
+      else start()
+    })
+
+    // touch swipe
+    let startX = 0
+    root.addEventListener(
+      'touchstart',
+      (e) => {
+        startX = e.changedTouches[0]?.clientX || 0
+      },
+      { passive: true },
+    )
+    root.addEventListener(
+      'touchend',
+      (e) => {
+        const dx = (e.changedTouches[0]?.clientX || 0) - startX
+        if (Math.abs(dx) < 40) return
+        go(dx < 0 ? index + 1 : index - 1)
+        start()
+      },
+      { passive: true },
+    )
+
+    renderDots()
+    syncSlides()
+    start()
+  }
+
+  initShotCarousel()
 
   initHeroCompare()
 

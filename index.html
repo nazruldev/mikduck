@@ -177,9 +177,11 @@
     <main id="main">
       <section class="jumbotron" aria-label="mikduck">
         <div class="jumbotron-copy">
+          <div class="jumbotron-copy-inner">
           <p class="jumbotron-brand">
             <img
-              src="./brand/logo-horizontal-light.svg"
+              class="jumbotron-logo"
+              src="./brand/logo-horizontal-dark.png"
               alt="mikduck"
               width="220"
               height="48"
@@ -195,27 +197,99 @@
           <div class="cta-row">
             <a class="btn btn-jumbo-primary" href="./download.html" data-site-download>
               <span data-i18n="home.ctaDownload">Unduh sekarang</span>
-              <span aria-hidden="true">→</span>
+              <i class="hgi hgi-stroke hgi-arrow-right-01" aria-hidden="true"></i>
             </a>
             <a class="btn btn-jumbo-ghost" href="./demo.html" target="_blank" rel="noopener noreferrer">
               <span data-i18n="home.ctaDemo">Live demo</span>
-              <span aria-hidden="true">↗</span>
+              <i class="hgi hgi-stroke hgi-arrow-up-right" aria-hidden="true"></i>
             </a>
           </div>
           <p class="hero-meta">
             <a class="license-pill" href="https://www.gnu.org/licenses/agpl-3.0.html" rel="noopener noreferrer" target="_blank">AGPL-3.0</a>
             <span data-i18n="home.metaRest"> · Open source · Windows &amp; Linux</span>
           </p>
+          </div>
         </div>
         <div class="jumbotron-visual">
-          <img
-            src="./assets/dashboard-dark.png"
-            alt="mikduck dashboard — dark mode"
-            width="1280"
-            height="720"
-            decoding="async"
-            fetchpriority="high"
-          />
+          <div class="shot-carousel" data-shot-carousel aria-roledescription="carousel" aria-label="mikduck screenshots">
+            <div class="shot-carousel-viewport">
+              <div class="shot-carousel-track" data-shot-track>
+                <figure class="shot-slide is-active" data-shot-slide data-label-key="home.shotDashboard">
+                  <img src="./assets/screenshots/dashboard.png" alt="Dashboard" width="1280" height="720" decoding="async" fetchpriority="high" />
+                  <figcaption data-i18n="home.shotDashboard">Dashboard</figcaption>
+                </figure>
+                <figure class="shot-slide" data-shot-slide data-label-key="home.shotQuickPrint">
+                  <img src="./assets/screenshots/quick-print.png" alt="Quick Print" width="1280" height="720" loading="lazy" decoding="async" />
+                  <figcaption data-i18n="home.shotQuickPrint">Quick Print</figcaption>
+                </figure>
+                <figure class="shot-slide" data-shot-slide data-label-key="home.shotFinance">
+                  <img src="./assets/screenshots/finance.png" alt="Finance" width="1280" height="720" loading="lazy" decoding="async" />
+                  <figcaption data-i18n="home.shotFinance">Finance</figcaption>
+                </figure>
+                <figure class="shot-slide" data-shot-slide data-label-key="home.shotVouchers">
+                  <img src="./assets/screenshots/vouchers.png" alt="Users / Voucher" width="1280" height="720" loading="lazy" decoding="async" />
+                  <figcaption data-i18n="home.shotVouchers">Users / Voucher</figcaption>
+                </figure>
+                <figure class="shot-slide" data-shot-slide data-label-key="home.shotProfiles">
+                  <img src="./assets/screenshots/profiles.png" alt="User Profile" width="1280" height="720" loading="lazy" decoding="async" />
+                  <figcaption data-i18n="home.shotProfiles">User Profile</figcaption>
+                </figure>
+                <figure class="shot-slide" data-shot-slide data-label-key="home.shotActive">
+                  <img src="./assets/screenshots/active.png" alt="Hotspot Active" width="1280" height="720" loading="lazy" decoding="async" />
+                  <figcaption data-i18n="home.shotActive">Hotspot Active</figcaption>
+                </figure>
+                <figure class="shot-slide" data-shot-slide data-label-key="home.shotCookies">
+                  <img src="./assets/screenshots/cookies.png" alt="Cookies" width="1280" height="720" loading="lazy" decoding="async" />
+                  <figcaption data-i18n="home.shotCookies">Cookies</figcaption>
+                </figure>
+                <figure class="shot-slide" data-shot-slide data-label-key="home.shotTplLogin">
+                  <img src="./assets/screenshots/tpl-login.png" alt="Login Page" width="1280" height="720" loading="lazy" decoding="async" />
+                  <figcaption data-i18n="home.shotTplLogin">Login Page</figcaption>
+                </figure>
+                <figure class="shot-slide" data-shot-slide data-label-key="home.shotTplVoucher">
+                  <img src="./assets/screenshots/tpl-voucher.png" alt="Cetak Voucher" width="1280" height="720" loading="lazy" decoding="async" />
+                  <figcaption data-i18n="home.shotTplVoucher">Cetak Voucher</figcaption>
+                </figure>
+                <figure class="shot-slide" data-shot-slide data-label-key="home.shotDhcp">
+                  <img src="./assets/screenshots/dhcp.png" alt="DHCP Leases" width="1280" height="720" loading="lazy" decoding="async" />
+                  <figcaption data-i18n="home.shotDhcp">DHCP Leases</figcaption>
+                </figure>
+                <figure class="shot-slide" data-shot-slide data-label-key="home.shotQueues">
+                  <img src="./assets/screenshots/queues.png" alt="Traffic Queue" width="1280" height="720" loading="lazy" decoding="async" />
+                  <figcaption data-i18n="home.shotQueues">Traffic Queue</figcaption>
+                </figure>
+                <figure class="shot-slide" data-shot-slide data-label-key="home.shotTools">
+                  <img src="./assets/screenshots/tools.png" alt="Tools" width="1280" height="720" loading="lazy" decoding="async" />
+                  <figcaption data-i18n="home.shotTools">Tools</figcaption>
+                </figure>
+                <figure class="shot-slide" data-shot-slide data-label-key="home.shotServices">
+                  <img src="./assets/screenshots/services.png" alt="Services" width="1280" height="720" loading="lazy" decoding="async" />
+                  <figcaption data-i18n="home.shotServices">Services</figcaption>
+                </figure>
+                <figure class="shot-slide" data-shot-slide data-label-key="home.shotDevice">
+                  <img src="./assets/screenshots/device.png" alt="Device" width="1280" height="720" loading="lazy" decoding="async" />
+                  <figcaption data-i18n="home.shotDevice">Device</figcaption>
+                </figure>
+                <figure class="shot-slide" data-shot-slide data-label-key="home.shotSettings">
+                  <img src="./assets/screenshots/settings.png" alt="Settings" width="1280" height="720" loading="lazy" decoding="async" />
+                  <figcaption data-i18n="home.shotSettings">Settings</figcaption>
+                </figure>
+                <figure class="shot-slide" data-shot-slide data-label-key="home.shotPref">
+                  <img src="./assets/screenshots/settings-pref.png" alt="Preference" width="1280" height="720" loading="lazy" decoding="async" />
+                  <figcaption data-i18n="home.shotPref">Preference</figcaption>
+                </figure>
+              </div>
+            </div>
+            <div class="shot-carousel-ui">
+              <button type="button" class="shot-nav" data-shot-prev aria-label="Previous">
+                <i class="hgi hgi-stroke hgi-arrow-up-01" aria-hidden="true"></i>
+              </button>
+              <div class="shot-dots" data-shot-dots></div>
+              <button type="button" class="shot-nav" data-shot-next aria-label="Next">
+                <i class="hgi hgi-stroke hgi-arrow-down-01" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -266,78 +340,198 @@
         <div class="wrap">
           <header class="section-head reveal">
             <h2 data-i18n="home.vsTitle">mikduck vs MikhMon</h2>
-            <p data-i18n="home.vsLead">Alur hotspot familiar — stack &amp; pengalaman beda total. Tabel fitur operasional:</p>
+            <p data-i18n="home.vsLead">
+              Alur hotspot familiar — tapi cara jalan, stack, dan pengalaman beda. Ringkasannya di bawah.
+            </p>
           </header>
 
-          <div class="versus-table-wrap reveal">
-            <table class="versus-table">
-              <thead>
-                <tr>
-                  <th class="col-feat" data-i18n="home.vsColFeature">Fitur</th>
-                  <th>
-                    <img data-brand-icon src="./brand/logo-icon-dark.svg" alt="" width="22" height="22" />
-                    mikduck
-                  </th>
-                  <th>
-                    <img src="./assets/mikhmon-logo.png" alt="" width="22" height="22" />
-                    MikhMon
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="col-feat" data-i18n="home.vsR1">Cara jalan</td>
-                  <td class="yes" data-i18n="home.vsR1d">Desktop installer (Electron) — tanpa PHP</td>
-                  <td class="partial" data-i18n="home.vsR1m">Web + Apache/Nginx + PHP</td>
-                </tr>
-                <tr>
-                  <td class="col-feat" data-i18n="home.vsR2">Generate &amp; print voucher</td>
-                  <td class="yes" data-i18n="home.vsR2d">Ya · Quick Print · template · riwayat</td>
-                  <td class="yes" data-i18n="home.vsR2m">Ya · klasik &amp; matang</td>
-                </tr>
-                <tr>
-                  <td class="col-feat" data-i18n="home.vsR3">Profile hotspot</td>
-                  <td class="yes" data-i18n="home.vsR3d">Ya · Expired / Record / lock MAC</td>
-                  <td class="yes" data-i18n="home.vsR3m">Ya</td>
-                </tr>
-                <tr>
-                  <td class="col-feat" data-i18n="home.vsR4">User online / kick</td>
-                  <td class="yes" data-i18n="home.vsR4d">Ya · WebSocket live</td>
-                  <td class="partial" data-i18n="home.vsR4m">Ya · refresh / polling</td>
-                </tr>
-                <tr>
-                  <td class="col-feat" data-i18n="home.vsR5">MAC binding</td>
-                  <td class="yes" data-i18n="home.vsR5d">Binding / Unbinding di UI</td>
-                  <td class="yes" data-i18n="home.vsR5m">Ya</td>
-                </tr>
-                <tr>
-                  <td class="col-feat" data-i18n="home.vsR6">Finance / report jual</td>
-                  <td class="yes" data-i18n="home.vsR6d">Manual + sync script Mikhmon</td>
-                  <td class="yes" data-i18n="home.vsR6m">Ya (pola komunitas)</td>
-                </tr>
-                <tr>
-                  <td class="col-feat" data-i18n="home.vsR7">Hak akses operator</td>
-                  <td class="yes" data-i18n="home.vsR7d">Role granular di API</td>
-                  <td class="partial" data-i18n="home.vsR7m">Admin-style klasik</td>
-                </tr>
-                <tr>
-                  <td class="col-feat" data-i18n="home.vsR8">Tema &amp; bahasa</td>
-                  <td class="yes" data-i18n="home.vsR8d">Light / Dark / System · ID &amp; EN</td>
-                  <td class="no" data-i18n="home.vsR8m">UI web klasik</td>
-                </tr>
-                <tr>
-                  <td class="col-feat" data-i18n="home.vsR9">DHCP / queue / tools</td>
-                  <td class="yes" data-i18n="home.vsR9d">Ya (terintegrasi di app)</td>
-                  <td class="partial" data-i18n="home.vsR9m">Tergantung setup / plugin</td>
-                </tr>
-                <tr>
-                  <td class="col-feat" data-i18n="home.vsR10">Stack</td>
-                  <td class="yes">Electron · React · FastAPI · SQLite</td>
-                  <td class="partial">PHP · browser</td>
-                </tr>
-              </tbody>
-            </table>
+          <div class="versus reveal">
+            <article class="versus-card versus-duck">
+              <div class="versus-top">
+                <img data-brand-icon src="./brand/logo-icon-light.png" alt="" width="40" height="40" />
+                <div>
+                  <h3>mikduck</h3>
+                  <p data-i18n="home.vsDuckTag">Desktop app modern</p>
+                </div>
+              </div>
+              <ul class="versus-points">
+                <li>
+                  <span class="vs-yes" aria-hidden="true"></span>
+                  <span data-i18n="home.vsDuckP1">Installer desktop — tanpa PHP / Apache</span>
+                </li>
+                <li>
+                  <span class="vs-yes" aria-hidden="true"></span>
+                  <span data-i18n="home.vsDuckP2">Dashboard live WebSocket</span>
+                </li>
+                <li>
+                  <span class="vs-yes" aria-hidden="true"></span>
+                  <span data-i18n="home.vsDuckP3">Role operator granular di API</span>
+                </li>
+                <li>
+                  <span class="vs-yes" aria-hidden="true"></span>
+                  <span data-i18n="home.vsDuckP4">Light / Dark · ID &amp; EN bawaan</span>
+                </li>
+              </ul>
+              <a class="btn btn-primary" href="./download.html" data-i18n="home.vsDuckCta">Unduh mikduck</a>
+            </article>
+
+            <div class="versus-divider" aria-hidden="true"><span>vs</span></div>
+
+            <article class="versus-card versus-mon">
+              <div class="versus-top">
+                <img class="versus-mon-logo" src="./assets/mikhmon-logo.png" alt="" width="40" height="40" />
+                <div>
+                  <h3>MikhMon</h3>
+                  <p data-i18n="home.vsMonTag">Web app klasik</p>
+                </div>
+              </div>
+              <ul class="versus-points">
+                <li>
+                  <span class="vs-note" aria-hidden="true"></span>
+                  <span data-i18n="home.vsMonP1">Butuh web server + PHP</span>
+                </li>
+                <li>
+                  <span class="vs-note" aria-hidden="true"></span>
+                  <span data-i18n="home.vsMonP2">Status lewat refresh / polling</span>
+                </li>
+                <li>
+                  <span class="vs-note" aria-hidden="true"></span>
+                  <span data-i18n="home.vsMonP3">Akses admin-style klasik</span>
+                </li>
+                <li>
+                  <span class="vs-note" aria-hidden="true"></span>
+                  <span data-i18n="home.vsMonP4">UI web klasik komunitas</span>
+                </li>
+              </ul>
+              <p class="versus-footnote" data-i18n="home.vsMonNote">Referensi alur hotspot yang sudah matang di komunitas.</p>
+            </article>
           </div>
+
+          <div class="vs-compare reveal" aria-label="Feature comparison">
+            <div class="vs-compare-head">
+              <span data-i18n="home.vsColFeature">Fitur</span>
+              <span class="vs-compare-brand">
+                <img data-brand-icon src="./brand/logo-icon-light.png" alt="" width="18" height="18" />
+                mikduck
+              </span>
+              <span class="vs-compare-brand">
+                <img src="./assets/mikhmon-logo.png" alt="" width="18" height="18" />
+                MikhMon
+              </span>
+            </div>
+
+            <div class="vs-row is-diff">
+              <div class="vs-row-feat" data-i18n="home.vsR1">Cara jalan</div>
+              <div class="vs-row-cell is-pro">
+                <i class="hgi hgi-stroke hgi-tick-02" aria-hidden="true"></i>
+                <span data-i18n="home.vsR1d">Desktop installer (Electron) — tanpa PHP</span>
+              </div>
+              <div class="vs-row-cell is-soft">
+                <i class="hgi hgi-stroke hgi-minus-sign" aria-hidden="true"></i>
+                <span data-i18n="home.vsR1m">Web + Apache/Nginx + PHP</span>
+              </div>
+            </div>
+            <div class="vs-row">
+              <div class="vs-row-feat" data-i18n="home.vsR2">Generate &amp; print voucher</div>
+              <div class="vs-row-cell is-pro">
+                <i class="hgi hgi-stroke hgi-tick-02" aria-hidden="true"></i>
+                <span data-i18n="home.vsR2d">Ya · Quick Print · template · riwayat</span>
+              </div>
+              <div class="vs-row-cell is-pro">
+                <i class="hgi hgi-stroke hgi-tick-02" aria-hidden="true"></i>
+                <span data-i18n="home.vsR2m">Ya · klasik &amp; matang</span>
+              </div>
+            </div>
+            <div class="vs-row">
+              <div class="vs-row-feat" data-i18n="home.vsR3">Profile hotspot</div>
+              <div class="vs-row-cell is-pro">
+                <i class="hgi hgi-stroke hgi-tick-02" aria-hidden="true"></i>
+                <span data-i18n="home.vsR3d">Ya · Expired / Record / lock MAC</span>
+              </div>
+              <div class="vs-row-cell is-pro">
+                <i class="hgi hgi-stroke hgi-tick-02" aria-hidden="true"></i>
+                <span data-i18n="home.vsR3m">Ya</span>
+              </div>
+            </div>
+            <div class="vs-row is-diff">
+              <div class="vs-row-feat" data-i18n="home.vsR4">User online / kick</div>
+              <div class="vs-row-cell is-pro">
+                <i class="hgi hgi-stroke hgi-tick-02" aria-hidden="true"></i>
+                <span data-i18n="home.vsR4d">Ya · WebSocket live</span>
+              </div>
+              <div class="vs-row-cell is-soft">
+                <i class="hgi hgi-stroke hgi-minus-sign" aria-hidden="true"></i>
+                <span data-i18n="home.vsR4m">Ya · refresh / polling</span>
+              </div>
+            </div>
+            <div class="vs-row">
+              <div class="vs-row-feat" data-i18n="home.vsR5">MAC binding</div>
+              <div class="vs-row-cell is-pro">
+                <i class="hgi hgi-stroke hgi-tick-02" aria-hidden="true"></i>
+                <span data-i18n="home.vsR5d">Binding / Unbinding di UI</span>
+              </div>
+              <div class="vs-row-cell is-pro">
+                <i class="hgi hgi-stroke hgi-tick-02" aria-hidden="true"></i>
+                <span data-i18n="home.vsR5m">Ya</span>
+              </div>
+            </div>
+            <div class="vs-row">
+              <div class="vs-row-feat" data-i18n="home.vsR6">Finance / report jual</div>
+              <div class="vs-row-cell is-pro">
+                <i class="hgi hgi-stroke hgi-tick-02" aria-hidden="true"></i>
+                <span data-i18n="home.vsR6d">Manual + sync script Mikhmon</span>
+              </div>
+              <div class="vs-row-cell is-pro">
+                <i class="hgi hgi-stroke hgi-tick-02" aria-hidden="true"></i>
+                <span data-i18n="home.vsR6m">Ya (pola komunitas)</span>
+              </div>
+            </div>
+            <div class="vs-row is-diff">
+              <div class="vs-row-feat" data-i18n="home.vsR7">Hak akses operator</div>
+              <div class="vs-row-cell is-pro">
+                <i class="hgi hgi-stroke hgi-tick-02" aria-hidden="true"></i>
+                <span data-i18n="home.vsR7d">Role granular di API</span>
+              </div>
+              <div class="vs-row-cell is-soft">
+                <i class="hgi hgi-stroke hgi-minus-sign" aria-hidden="true"></i>
+                <span data-i18n="home.vsR7m">Admin-style klasik</span>
+              </div>
+            </div>
+            <div class="vs-row is-diff">
+              <div class="vs-row-feat" data-i18n="home.vsR8">Tema &amp; bahasa</div>
+              <div class="vs-row-cell is-pro">
+                <i class="hgi hgi-stroke hgi-tick-02" aria-hidden="true"></i>
+                <span data-i18n="home.vsR8d">Light / Dark / System · ID &amp; EN</span>
+              </div>
+              <div class="vs-row-cell is-soft">
+                <i class="hgi hgi-stroke hgi-minus-sign" aria-hidden="true"></i>
+                <span data-i18n="home.vsR8m">UI web klasik</span>
+              </div>
+            </div>
+            <div class="vs-row is-diff">
+              <div class="vs-row-feat" data-i18n="home.vsR9">DHCP / queue / tools</div>
+              <div class="vs-row-cell is-pro">
+                <i class="hgi hgi-stroke hgi-tick-02" aria-hidden="true"></i>
+                <span data-i18n="home.vsR9d">Ya (terintegrasi di app)</span>
+              </div>
+              <div class="vs-row-cell is-soft">
+                <i class="hgi hgi-stroke hgi-minus-sign" aria-hidden="true"></i>
+                <span data-i18n="home.vsR9m">Tergantung setup / plugin</span>
+              </div>
+            </div>
+            <div class="vs-row is-diff">
+              <div class="vs-row-feat" data-i18n="home.vsR10">Stack</div>
+              <div class="vs-row-cell is-pro">
+                <i class="hgi hgi-stroke hgi-tick-02" aria-hidden="true"></i>
+                <span>Electron · React · FastAPI · SQLite</span>
+              </div>
+              <div class="vs-row-cell is-soft">
+                <i class="hgi hgi-stroke hgi-minus-sign" aria-hidden="true"></i>
+                <span>PHP · browser</span>
+              </div>
+            </div>
+          </div>
+
           <p class="source-line reveal" data-i18n="home.vsFootnote">
             mikduck menghormati MikhMon sebagai referensi alur hotspot — bukan pengganti wajib.
           </p>
@@ -390,7 +584,7 @@
               <span data-i18n="home.linkSponsors">Tier dukungan &amp; kolaborasi.</span>
             </a>
             <a class="home-link" href="./timeline.html">
-              <strong>Timeline</strong>
+              <strong data-i18n="nav.timeline">Roadmap</strong>
               <span data-i18n="home.linkTimeline">Roadmap MVP → stabil → lanjutan.</span>
             </a>
             <a class="home-link" href="./faq.html">
