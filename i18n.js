@@ -21,7 +21,7 @@
         'Sponsori mikduck: dukung pengembangan hotspot manager MikroTik open source lewat sponsorship, partnership, atau donasi kopi. Hubungi sponsors@mikduck.dev.',
       'meta.faqTitle': 'FAQ mikduck — Install, Connect API MikroTik & Beda dengan MikhMon',
       'meta.faqDesc':
-        'Pertanyaan umum mikduck: cara install, connect RouterOS API port 8728, penyimpanan data lokal SQLite, apakah gratis/MIT, dan perbedaan dengan MikhMon PHP.',
+        'Pertanyaan umum mikduck: cara install, connect RouterOS API port 8728, penyimpanan data lokal SQLite, apakah gratis/AGPL-3.0, dan perbedaan dengan MikhMon PHP.',
       'meta.timelineTitle': 'Timeline & Roadmap mikduck — Rencana Fitur Hotspot MikroTik',
       'meta.timelineDesc':
         'Roadmap mikduck: MVP, stabilisasi, packaging Linux, dan fitur lanjutan untuk aplikasi hotspot manager MikroTik open source.',
@@ -73,7 +73,7 @@
         'Aplikasi desktop open source untuk generate voucher, print, dan pantau user aktif — alur kerja familiar ala MikhMon, dibangun modern.',
       'home.ctaDownload': 'Unduh sekarang',
       'home.ctaDemo': 'Live demo',
-      'home.meta': 'MIT License · Open source · Windows & Linux',
+      'home.meta': 'AGPL-3.0 · Open source · Windows & Linux',
       'home.featuresTitle': 'Apa saja yang bisa dilakukan',
       'home.featuresLead': 'Siap operasional warnet & hotspot harian — tanpa setup PHP/Apache.',
       'home.f1Title': 'Voucher & Quick Print',
@@ -142,7 +142,7 @@
       'download.eyebrow': 'Download',
       'download.title': 'Unduh mikduck gratis',
       'download.lead':
-        'Open source (MIT). Hanya versi terbaru yang tersedia — sama seperti di app: tidak bisa skip / unduh versi lama.',
+        'Open source (AGPL-3.0). Hanya versi terbaru yang tersedia — sama seperti di app: tidak bisa skip / unduh versi lama.',
       'download.versionLabel': 'Versi tersedia',
       'download.loading': 'Memuat…',
       'download.winSetup': 'Windows Setup',
@@ -199,7 +199,7 @@
       'sponsors.eyebrow': 'Sponsorship',
       'sponsors.title': 'Dukung & sponsori mikduck',
       'sponsors.lead':
-        'Proyek tetap gratis (MIT). Sponsorship membantu maintenance, packaging Linux, dan dokumentasi — tanpa paywall fitur.',
+        'Proyek tetap gratis (AGPL-3.0). Sponsorship membantu maintenance, packaging Linux, dan dokumentasi — tanpa paywall fitur.',
       'sponsors.coffeeName': 'Coffee',
       'sponsors.coffeeTitle': 'Sukarela',
       'sponsors.coffeePrice': 'Mulai dari kopi',
@@ -231,7 +231,7 @@
       'faq.a1':
         'Aplikasi desktop untuk mengelola hotspot MikroTik (voucher, profile, user aktif, print, finance) lewat RouterOS API. Mirip alur MikhMon, tapi tanpa web server PHP.',
       'faq.q2': 'Apakah harus bayar?',
-      'faq.a2': 'Tidak. mikduck open source dengan lisensi MIT. Donasi kopi opsional di halaman Coffee.',
+      'faq.a2': 'Tidak. mikduck open source dengan lisensi AGPL-3.0. Donasi kopi opsional di halaman Coffee.',
       'faq.q3': 'Bedanya dengan MikhMon?',
       'faq.a3':
         'MikhMon berjalan di PHP + web server. mikduck adalah app desktop (Electron) dengan backend FastAPI dan UI React, plus hak akses granular dan dashboard WebSocket.',
@@ -297,7 +297,7 @@
         'mikduck gratis dan open source. Kalau membantu operasional hotspot Anda, traktir kopi opsional — tanpa paywall, tanpa fitur premium tersembunyi.',
       'coffee.panelTitle': 'Satu kopi = waktu coding',
       'coffee.panelBody':
-        'Donasi dipakai untuk waktu maintenance, fix bug, packaging Windows/Linux, dan dokumentasi. Aplikasi tetap MIT — siapa pun boleh pakai, fork, dan kontribusi.',
+        'Donasi dipakai untuk waktu maintenance, fix bug, packaging Windows/Linux, dan dokumentasi. Aplikasi tetap AGPL-3.0 — siapa pun boleh pakai, fork, dan kontribusi.',
       'coffee.cta': 'Traktir di Buy Me a Coffee',
       'coffee.feedback': 'Kirim masukan gratis',
       'coffee.qrCaption': 'Scan QR untuk traktir kopi',
@@ -335,7 +335,7 @@
         'Sponsor mikduck: support open-source MikroTik hotspot manager development via sponsorship, partnership, or coffee. Contact sponsors@mikduck.dev.',
       'meta.faqTitle': 'mikduck FAQ — Install, MikroTik API Connect & vs MikhMon',
       'meta.faqDesc':
-        'Common mikduck questions: how to install, connect RouterOS API on port 8728, local SQLite storage, MIT/free licensing, and differences from PHP MikhMon.',
+        'Common mikduck questions: how to install, connect RouterOS API on port 8728, local SQLite storage, AGPL-3.0/free licensing, and differences from PHP MikhMon.',
       'meta.timelineTitle': 'mikduck Timeline & Roadmap — Hotspot MikroTik Feature Plans',
       'meta.timelineDesc':
         'mikduck roadmap: MVP, stabilization, Linux packaging, and upcoming features for the open-source MikroTik hotspot manager.',
@@ -387,7 +387,7 @@
         'An open-source desktop app to generate vouchers, print, and monitor active users — a familiar MikhMon-style workflow, built modern.',
       'home.ctaDownload': 'Download now',
       'home.ctaDemo': 'Live demo',
-      'home.meta': 'MIT License · Open source · Windows & Linux',
+      'home.meta': 'AGPL-3.0 · Open source · Windows & Linux',
       'home.featuresTitle': 'What you can do',
       'home.featuresLead': 'Ready for daily warnet & hotspot ops — no PHP/Apache setup.',
       'home.f1Title': 'Vouchers & Quick Print',
@@ -456,7 +456,7 @@
       'download.eyebrow': 'Download',
       'download.title': 'Download mikduck for free',
       'download.lead':
-        'Open source (MIT). Only the latest version is offered — same as in the app: you cannot skip / download older versions.',
+        'Open source (AGPL-3.0). Only the latest version is offered — same as in the app: you cannot skip / download older versions.',
       'download.versionLabel': 'Available version',
       'download.loading': 'Loading…',
       'download.winSetup': 'Windows Setup',
@@ -513,7 +513,7 @@
       'sponsors.eyebrow': 'Sponsorship',
       'sponsors.title': 'Support & sponsor mikduck',
       'sponsors.lead':
-        'The project stays free (MIT). Sponsorship helps maintenance, Linux packaging, and docs — with no feature paywall.',
+        'The project stays free (AGPL-3.0). Sponsorship helps maintenance, Linux packaging, and docs — with no feature paywall.',
       'sponsors.coffeeName': 'Coffee',
       'sponsors.coffeeTitle': 'Voluntary',
       'sponsors.coffeePrice': 'Starting from a coffee',
@@ -545,7 +545,7 @@
       'faq.a1':
         'A desktop app to manage MikroTik hotspots (vouchers, profiles, active users, print, finance) via the RouterOS API. Similar to MikhMon’s flow, but without a PHP web server.',
       'faq.q2': 'Do I have to pay?',
-      'faq.a2': 'No. mikduck is open source under MIT. Optional coffee donations are on the Coffee page.',
+      'faq.a2': 'No. mikduck is open source under AGPL-3.0. Optional coffee donations are on the Coffee page.',
       'faq.q3': 'How is it different from MikhMon?',
       'faq.a3':
         'MikhMon runs on PHP + a web server. mikduck is a desktop app (Electron) with a FastAPI backend and React UI, plus granular access and a WebSocket dashboard.',
@@ -611,7 +611,7 @@
         'mikduck is free and open source. If it helps your hotspot ops, an optional coffee is welcome — no paywall, no hidden premium features.',
       'coffee.panelTitle': 'One coffee = coding time',
       'coffee.panelBody':
-        'Donations go toward maintenance time, bug fixes, Windows/Linux packaging, and docs. The app stays MIT — anyone can use, fork, and contribute.',
+        'Donations go toward maintenance time, bug fixes, Windows/Linux packaging, and docs. The app stays AGPL-3.0 — anyone can use, fork, and contribute.',
       'coffee.cta': 'Treat on Buy Me a Coffee',
       'coffee.feedback': 'Send free feedback',
       'coffee.qrCaption': 'Scan the QR to buy a coffee',

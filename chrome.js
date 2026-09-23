@@ -195,7 +195,7 @@
             <a href="https://github.com/nazruldev/mikduck" rel="noopener noreferrer" target="_blank">GitHub</a>
           </div>
         </div>
-        <p class="footer-copy">© 2026 mikduck · MIT License</p>
+        <p class="footer-copy">© 2026 mikduck · <a href="https://www.gnu.org/licenses/agpl-3.0.html" rel="noopener noreferrer" target="_blank">AGPL-3.0</a></p>
       </div>
     </footer>`
   }

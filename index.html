@@ -117,7 +117,7 @@
         "priceCurrency": "USD",
         "availability": "https://schema.org/InStock"
       },
-      "license": "https://opensource.org/licenses/MIT",
+      "license": "https://www.gnu.org/licenses/agpl-3.0.html",
       "url": "https://mikduck.dev",
       "downloadUrl": "https://mikduck.dev/download.html",
       "screenshot": "https://mikduck.dev/assets/og-cover.png",
@@ -175,82 +175,47 @@
     <div data-site-chrome></div>
 
     <main id="main">
-      <section class="hero">
-        <div class="hero-atmosphere" aria-hidden="true"></div>
-        <div class="wrap hero-grid">
-          <div class="hero-copy">
-            <p class="brand-signal">
-              <img
-                class="brand-signal-logo"
-                src="./brand/logo-horizontal-light.svg"
-                alt="mikduck"
-                width="280"
-                height="64"
-                decoding="async"
-                fetchpriority="high"
-              />
-            </p>
-            <h1 data-site-title data-i18n="home.heroTitle">Kelola hotspot MikroTik tanpa web server</h1>
-            <p class="lede" data-site-subtitle data-i18n="home.heroSubtitle">
-              Aplikasi desktop open source untuk generate voucher, print, dan pantau user aktif — alur kerja familiar ala
-              MikhMon, dibangun modern.
-            </p>
-            <div class="cta-row">
-              <a class="btn btn-primary" href="./download.html" data-site-download data-i18n="home.ctaDownload">Unduh sekarang</a>
-              <a class="btn btn-ghost" href="./demo.html" target="_blank" rel="noopener noreferrer">
-                <span class="live-dot" aria-hidden="true"></span>
-                <span data-i18n="home.ctaDemo">Live demo</span>
-              </a>
-            </div>
-            <p class="hero-meta" data-site-meta data-i18n="home.meta">MIT License · Open source · Windows &amp; Linux</p>
+      <section class="jumbotron" aria-label="mikduck">
+        <div class="jumbotron-copy">
+          <p class="jumbotron-brand">
+            <img
+              src="./brand/logo-horizontal-light.svg"
+              alt="mikduck"
+              width="220"
+              height="48"
+              decoding="async"
+              fetchpriority="high"
+            />
+          </p>
+          <h1 data-site-title data-i18n="home.heroTitle">Kelola hotspot MikroTik tanpa web server</h1>
+          <p class="lede" data-site-subtitle data-i18n="home.heroSubtitle">
+            Aplikasi desktop open source untuk generate voucher, print, dan pantau user aktif — alur kerja familiar ala
+            MikhMon, dibangun modern.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-jumbo-primary" href="./download.html" data-site-download>
+              <span data-i18n="home.ctaDownload">Unduh sekarang</span>
+              <span aria-hidden="true">→</span>
+            </a>
+            <a class="btn btn-jumbo-ghost" href="./demo.html" target="_blank" rel="noopener noreferrer">
+              <span data-i18n="home.ctaDemo">Live demo</span>
+              <span aria-hidden="true">↗</span>
+            </a>
           </div>
-
-          <div class="hero-visual float">
-            <div
-              class="hero-compare"
-              data-hero-compare
-              style="--pos: 50%"
-            >
-              <img
-                class="hero-compare-img hero-compare-base"
-                src="./assets/dashboard-light.png"
-                alt="mikduck dashboard — light mode"
-                width="1280"
-                height="720"
-                decoding="async"
-                draggable="false"
-              />
-              <div class="hero-compare-overlay" aria-hidden="true">
-                <img
-                  class="hero-compare-img"
-                  src="./assets/dashboard-dark.png"
-                  alt=""
-                  width="1280"
-                  height="720"
-                  decoding="async"
-                  fetchpriority="high"
-                  draggable="false"
-                />
-              </div>
-              <div class="hero-compare-handle" data-compare-handle>
-                <span class="hero-compare-line" aria-hidden="true"></span>
-                <button
-                  type="button"
-                  class="hero-compare-knob"
-                  data-compare-knob
-                  aria-label="Geser untuk bandingkan dark dan light mode"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                  aria-valuenow="50"
-                  role="slider"
-                >
-                  <span aria-hidden="true">‹ ›</span>
-                </button>
-              </div>
-              <span class="hero-compare-label hero-compare-label-dark">Dark</span>
-              <span class="hero-compare-label hero-compare-label-light">Light</span>
-            </div>
-          </div>
+          <p class="hero-meta">
+            <a class="license-pill" href="https://www.gnu.org/licenses/agpl-3.0.html" rel="noopener noreferrer" target="_blank">AGPL-3.0</a>
+            <span data-i18n="home.metaRest"> · Open source · Windows &amp; Linux</span>
+          </p>
+        </div>
+        <div class="jumbotron-visual">
+          <img
+            src="./assets/dashboard-dark.png"
+            alt="mikduck dashboard — dark mode"
+            width="1280"
+            height="720"
+            decoding="async"
+            fetchpriority="high"
+          />
         </div>
       </section>
 

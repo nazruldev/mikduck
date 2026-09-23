@@ -540,7 +540,149 @@ a {
   height: 100%;
 }
 
-/* Hero (home) */
+/* Jumbotron — split panel (Bulwark-style) */
+.jumbotron {
+  display: grid;
+  min-height: calc(100svh - var(--header-h));
+  background: #0d1520;
+}
+
+@media (min-width: 960px) {
+  .jumbotron {
+    grid-template-columns: minmax(300px, 42%) minmax(0, 58%);
+  }
+}
+
+.jumbotron-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0;
+  padding: clamp(2rem, 5vw, 3.5rem) clamp(1.25rem, 4vw, 3rem);
+  background: var(--brand);
+  color: #fff;
+}
+
+.jumbotron-brand {
+  margin: 0 0 1.5rem;
+}
+
+.jumbotron-brand img {
+  display: block;
+  width: min(100%, 220px);
+  height: auto;
+  max-height: 48px;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.jumbotron-copy h1 {
+  margin: 0;
+  font-family: var(--display);
+  font-size: clamp(1.9rem, 4vw, 2.85rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.12;
+  max-width: 16ch;
+  color: #fff;
+}
+
+.jumbotron-copy .lede {
+  margin: 1.15rem 0 0;
+  max-width: 36ch;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+
+.jumbotron-copy .cta-row {
+  margin-top: 1.85rem;
+}
+
+.btn-jumbo-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.7rem 1.15rem;
+  border: 0;
+  border-radius: 0;
+  background: #fff;
+  color: #0d1520;
+  font: inherit;
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.btn-jumbo-primary:hover {
+  background: #f0f4f8;
+}
+
+.btn-jumbo-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.65rem 1.1rem;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 0;
+  background: transparent;
+  color: #fff;
+  font: inherit;
+  font-size: 0.92rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.btn-jumbo-ghost:hover {
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.jumbotron-copy .hero-meta {
+  margin: 1.25rem 0 0;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.license-pill {
+  display: inline-block;
+  padding: 0.12rem 0.45rem;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+}
+
+.license-pill:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.jumbotron-visual {
+  position: relative;
+  min-height: 280px;
+  background: #0a1018;
+  overflow: hidden;
+}
+
+.jumbotron-visual img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 280px;
+  object-fit: cover;
+  object-position: left top;
+}
+
+@media (min-width: 960px) {
+  .jumbotron-visual,
+  .jumbotron-visual img {
+    min-height: calc(100svh - var(--header-h));
+  }
+}
+
+/* Legacy hero (kept for safety if used elsewhere) */
 .hero {
   position: relative;
   min-height: calc(100svh - var(--header-h));
