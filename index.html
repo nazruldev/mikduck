@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="id" prefix="og: https://ogp.me/ns#">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title data-i18n-title="meta.homeTitle">mikduck — Aplikasi Hotspot MikroTik Manager Open Source | Alternatif MikhMon</title>
+    <meta
+      name="description"
+      data-i18n-content="meta.homeDesc"
+      content="mikduck adalah aplikasi desktop open source untuk kelola hotspot MikroTik: generate voucher, print, profile, user aktif realtime, dan finance. Alternatif modern MikhMon tanpa web server PHP. Gratis untuk Windows &amp; Linux."
+    />
+    <meta name="keywords" content="mikduck, hotspot mikrotik, aplikasi hotspot mikrotik, alternatif mikhmon, mikrotik voucher, generate voucher wifi, hotspot manager, routerOS API, kelola hotspot warnet, mikrotik billing" />
+    <meta name="author" content="mikduck" />
+    <meta name="creator" content="mikduck" />
+    <meta name="publisher" content="mikduck" />
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+    <meta name="googlebot" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+    <meta name="bingbot" content="index,follow" />
+    <meta name="theme-color" content="#0d1520" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="application-name" content="mikduck" />
+    <meta name="apple-mobile-web-app-title" content="mikduck" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <link rel="canonical" href="https://mikduck.dev/" />
+    <link rel="alternate" hreflang="id" href="https://mikduck.dev/" />
+    <link rel="alternate" hreflang="en" href="https://mikduck.dev/?lang=en" />
+    <link rel="alternate" hreflang="x-default" href="https://mikduck.dev/" />
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://mikduck.dev/sitemap.xml" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="mikduck" />
+    <meta property="og:locale" content="id_ID" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:url" content="https://mikduck.dev/" />
+    <meta property="og:title" content="mikduck — Aplikasi Hotspot MikroTik Manager Open Source | Alternatif MikhMon" />
+    <meta property="og:description" content="mikduck adalah aplikasi desktop open source untuk kelola hotspot MikroTik: generate voucher, print, profile, user aktif realtime, dan finance. Alternatif modern MikhMon tanpa web server PHP. Gratis untuk Windows &amp; Linux." />
+    <meta property="og:image" content="https://mikduck.dev/assets/og-cover.png" />
+    <meta property="og:image:secure_url" content="https://mikduck.dev/assets/og-cover.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:alt" content="mikduck dashboard — MikroTik hotspot manager" />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="720" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="mikduck — Aplikasi Hotspot MikroTik Manager Open Source | Alternatif MikhMon" />
+    <meta name="twitter:description" content="mikduck adalah aplikasi desktop open source untuk kelola hotspot MikroTik: generate voucher, print, profile, user aktif realtime, dan finance. Alternatif modern MikhMon tanpa web server PHP. Gratis untuk Windows &amp; Linux." />
+    <meta name="twitter:image" content="https://mikduck.dev/assets/og-cover.png" />
+    <meta name="twitter:image:alt" content="mikduck dashboard — MikroTik hotspot manager" />
+
+    <link rel="icon" href="./brand/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="./brand/apple-touch-icon.png" />
+    <link rel="manifest" href="./site.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="./theme-boot.js"></script>
+    <link rel="stylesheet" href="./styles.css?v=20260923j" />
+
+    <script type="application/ld+json">
+{
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "mikduck",
+      "alternateName": "mikduck MikroTik Hotspot Manager",
+      "url": "https://mikduck.dev",
+      "inLanguage": [
+        "id-ID",
+        "en"
+      ],
+      "publisher": {
+        "@type": "Organization",
+        "name": "mikduck",
+        "url": "https://mikduck.dev"
+      },
+      "potentialAction": {
+        "@type": "ReadAction",
+        "target": "https://mikduck.dev/download.html"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+{
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "mikduck",
+      "url": "https://mikduck.dev",
+      "logo": "https://mikduck.dev/brand/logo-icon-light.png",
+      "email": "sponsors@mikduck.dev",
+      "sameAs": [
+        "https://github.com/mikduck/mikduck"
+      ],
+      "description": "Open source MikroTik hotspot manager — modern alternative to MikhMon."
+    }
+    </script>
+    <script type="application/ld+json">
+{
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "mikduck",
+      "alternateName": [
+        "mikduck Hotspot Manager",
+        "MikroTik Hotspot Manager"
+      ],
+      "applicationCategory": "BusinessApplication",
+      "applicationSubCategory": "Network Management",
+      "operatingSystem": "Windows, Linux",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      },
+      "license": "https://www.gnu.org/licenses/agpl-3.0.html",
+      "url": "https://mikduck.dev",
+      "downloadUrl": "https://mikduck.dev/download.html",
+      "screenshot": "https://mikduck.dev/assets/og-cover.png",
+      "image": "https://mikduck.dev/assets/og-cover.png",
+      "softwareVersion": "1.2.0",
+      "author": {
+        "@type": "Organization",
+        "name": "mikduck",
+        "url": "https://mikduck.dev",
+        "sameAs": [
+          "https://github.com/mikduck/mikduck"
+        ],
+        "email": "sponsors@mikduck.dev"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "mikduck",
+        "url": "https://mikduck.dev",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://mikduck.dev/brand/logo-icon-light.png"
+        }
+      },
+      "description": "Aplikasi desktop open source untuk mengelola hotspot MikroTik: generate voucher, print thermal/A4, profile bandwidth, user aktif realtime, finance, dan multi-router. Alternatif modern MikhMon tanpa PHP/Apache.",
+      "featureList": [
+        "Generate & print voucher hotspot",
+        "Dashboard realtime WebSocket",
+        "Profile & user hotspot MikroTik",
+        "Finance / rekap penjualan voucher",
+        "Multi-router switch",
+        "Hak akses granular UAM",
+        "Light & dark mode"
+      ],
+      "keywords": "mikduck, hotspot mikrotik, mikrotik voucher, alternatif mikhmon, hotspot manager, routerOS API, generate voucher wifi"
+    }
+    </script>
+    <script type="application/ld+json">
+{
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://mikduck.dev"
+        }
+      ]
+    }
+    </script>
+  </head>
+  <body data-page="home">
+    <a class="skip" href="#main" data-i18n="common.skip">Lewati ke konten</a>
+
+    <div data-site-chrome></div>
+
+    <main id="main">
+      <section class="jumbotron" aria-label="mikduck">
+        <div class="jumbotron-gutter" aria-hidden="true"></div>
+        <div class="jumbotron-copy">
+          <div class="jumbotron-copy-inner">
+          <p class="jumbotron-brand">
+            <img
+              class="jumbotron-logo"
+              src="./brand/logo-horizontal-dark.png"
+              alt="mikduck"
+              width="220"
+              height="48"
+              decoding="async"
+              fetchpriority="high"
+            />
+          </p>
+          <h1 data-site-title data-i18n="home.heroTitle">Kelola hotspot MikroTik tanpa web server</h1>
+          <p class="lede" data-site-subtitle data-i18n="home.heroSubtitle">
+            Aplikasi desktop open source untuk generate voucher, print, dan pantau user aktif — alur kerja familiar ala
+            MikhMon, dibangun modern.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-jumbo-primary" href="./download.html" data-site-download>
+              <span data-i18n="home.ctaDownload">Unduh sekarang</span>
+              <i class="hgi hgi-stroke hgi-arrow-right-01" aria-hidden="true"></i>
+            </a>
+            <a class="btn btn-jumbo-ghost" href="./demo.html" target="_blank" rel="noopener noreferrer">
+              <span data-i18n="home.ctaDemo">Live demo</span>
+              <i class="hgi hgi-stroke hgi-arrow-up-right" aria-hidden="true"></i>
+            </a>
+          </div>
+          <p class="hero-meta">
+            <a class="license-pill" href="https://www.gnu.org/licenses/agpl-3.0.html" rel="noopener noreferrer" target="_blank">AGPL-3.0</a>
+            <span data-i18n="home.metaRest"> · Open source · Windows &amp; Linux</span>
+          </p>
+          </div>
+        </div>
+        <div class="jumbotron-visual">
+          <div class="shot-carousel" data-shot-carousel aria-roledescription="carousel" aria-label="mikduck screenshots">
+            <div class="shot-carousel-viewport">
+              <div class="shot-carousel-track" data-shot-track>
+                <figure class="shot-slide is-active" data-shot-slide data-label-key="home.shotDashboard">
+                  <img src="./assets/screenshots/dashboard.png" alt="Dashboard" width="1280" height="720" decoding="async" fetchpriority="high" />
+                  <figcaption data-i18n="home.shotDashboard">Dashboard</figcaption>
+                </figure>
+                <figure class="shot-slide" data-shot-slide data-label-key="home.shotQuickPrint">
+                  <img src="./assets/screenshots/quick-print.png" alt="Quick Print" width="1280" height="720" loading="lazy" decoding="async" />
+                  <figcaption data-i18n="home.shotQuickPrint">Quick Print</figcaption>
+                </figure>
+                <figure class="shot-slide" data-shot-slide data-label-key="home.shotFinance">
+                  <img src="./assets/screenshots/finance.png" alt="Finance" width="1280" height="720" loading="lazy" decoding="async" />
+                  <figcaption data-i18n="home.shotFinance">Finance</figcaption>
+                </figure>
+                <figure class="shot-slide" data-shot-slide data-label-key="home.shotVouchers">
+                  <img src="./assets/screenshots/vouchers.png" alt="Users / Voucher" width="1280" height="720" loading="lazy" decoding="async" />
+                  <figcaption data-i18n="home.shotVouchers">Users / Voucher</figcaption>
+                </figure>
+                <figure class="shot-slide" data-shot-slide data-label-key="home.shotProfiles">
+                  <img src="./assets/screenshots/profiles.png" alt="User Profile" width="1280" height="720" loading="lazy" decoding="async" />
+                  <figcaption data-i18n="home.shotProfiles">User Profile</figcaption>
+                </figure>
+                <figure class="shot-slide" data-shot-slide data-label-key="home.shotActive">
+                  <img src="./assets/screenshots/active.png" alt="Hotspot Active" width="1280" height="720" loading="lazy" decoding="async" />
+                  <figcaption data-i18n="home.shotActive">Hotspot Active</figcaption>
+                </figure>
+                <figure class="shot-slide" data-shot-slide data-label-key="home.shotCookies">
+                  <img src="./assets/screenshots/cookies.png" alt="Cookies" width="1280" height="720" loading="lazy" decoding="async" />
+                  <figcaption data-i18n="home.shotCookies">Cookies</figcaption>
+                </figure>
+                <figure class="shot-slide" data-shot-slide data-label-key="home.shotTplLogin">
+                  <img src="./assets/screenshots/tpl-login.png" alt="Login Page" width="1280" height="720" loading="lazy" decoding="async" />
+                  <figcaption data-i18n="home.shotTplLogin">Login Page</figcaption>
+                </figure>
+                <figure class="shot-slide" data-shot-slide data-label-key="home.shotTplVoucher">
+                  <img src="./assets/screenshots/tpl-voucher.png" alt="Cetak Voucher" width="1280" height="720" loading="lazy" decoding="async" />
+                  <figcaption data-i18n="home.shotTplVoucher">Cetak Voucher</figcaption>
+                </figure>
+                <figure class="shot-slide" data-shot-slide data-label-key="home.shotDhcp">
+                  <img src="./assets/screenshots/dhcp.png" alt="DHCP Leases" width="1280" height="720" loading="lazy" decoding="async" />
+                  <figcaption data-i18n="home.shotDhcp">DHCP Leases</figcaption>
+                </figure>
+                <figure class="shot-slide" data-shot-slide data-label-key="home.shotQueues">
+                  <img src="./assets/screenshots/queues.png" alt="Traffic Queue" width="1280" height="720" loading="lazy" decoding="async" />
+                  <figcaption data-i18n="home.shotQueues">Traffic Queue</figcaption>
+                </figure>
+                <figure class="shot-slide" data-shot-slide data-label-key="home.shotTools">
+                  <img src="./assets/screenshots/tools.png" alt="Tools" width="1280" height="720" loading="lazy" decoding="async" />
+                  <figcaption data-i18n="home.shotTools">Tools</figcaption>
+                </figure>
+                <figure class="shot-slide" data-shot-slide data-label-key="home.shotServices">
+                  <img src="./assets/screenshots/services.png" alt="Services" width="1280" height="720" loading="lazy" decoding="async" />
+                  <figcaption data-i18n="home.shotServices">Services</figcaption>
+                </figure>
+                <figure class="shot-slide" data-shot-slide data-label-key="home.shotDevice">
+                  <img src="./assets/screenshots/device.png" alt="Device" width="1280" height="720" loading="lazy" decoding="async" />
+                  <figcaption data-i18n="home.shotDevice">Device</figcaption>
+                </figure>
+                <figure class="shot-slide" data-shot-slide data-label-key="home.shotSettings">
+                  <img src="./assets/screenshots/settings.png" alt="Settings" width="1280" height="720" loading="lazy" decoding="async" />
+                  <figcaption data-i18n="home.shotSettings">Settings</figcaption>
+                </figure>
+                <figure class="shot-slide" data-shot-slide data-label-key="home.shotPref">
+                  <img src="./assets/screenshots/settings-pref.png" alt="Preference" width="1280" height="720" loading="lazy" decoding="async" />
+                  <figcaption data-i18n="home.shotPref">Preference</figcaption>
+                </figure>
+              </div>
+            </div>
+            <div class="shot-fade" aria-hidden="true"></div>
+            <div class="shot-carousel-ui">
+              <button type="button" class="shot-nav" data-shot-prev aria-label="Previous">
+                <i class="hgi hgi-stroke hgi-arrow-up-01" aria-hidden="true"></i>
+              </button>
+              <div class="shot-dots" data-shot-dots></div>
+              <button type="button" class="shot-nav" data-shot-next aria-label="Next">
+                <i class="hgi hgi-stroke hgi-arrow-down-01" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="fitur">
+        <div class="wrap">
+          <header class="section-head reveal">
+            <h2 data-i18n="home.featuresTitle">Apa saja yang bisa dilakukan</h2>
+            <p data-i18n="home.featuresLead">MVP siap untuk operasional warnet &amp; hotspot harian — tanpa setup PHP/Apache.</p>
+          </header>
+          <div class="feature-list reveal">
+            <article class="feature">
+              <h3 data-i18n="home.f1Title">Voucher &amp; Quick Print</h3>
+              <p data-i18n="home.f1Body">Generate massal, cetak thermal/A4, template kustom, dan riwayat print.</p>
+            </article>
+            <article class="feature">
+              <h3 data-i18n="home.f2Title">Dashboard realtime</h3>
+              <p data-i18n="home.f2Body">CPU, RAM, user aktif lewat WebSocket — status live tanpa refresh manual.</p>
+            </article>
+            <article class="feature">
+              <h3 data-i18n="home.f3Title">Profile hotspot</h3>
+              <p data-i18n="home.f3Body">Validity, rate limit, expired mode (Remove &amp; Record), lock MAC, script on-login.</p>
+            </article>
+            <article class="feature">
+              <h3 data-i18n="home.f4Title">Online · Binding · Cookies</h3>
+              <p data-i18n="home.f4Body">Kick user, binding/unbinding MAC, cookies hotspot, copy MAC/IP cepat.</p>
+            </article>
+            <article class="feature">
+              <h3 data-i18n="home.f5Title">Finance</h3>
+              <p data-i18n="home.f5Body">Income/expense manual + sync script Mikhmon dari router (dedupe ros_key).</p>
+            </article>
+            <article class="feature">
+              <h3 data-i18n="home.f6Title">DHCP · Queue · Tools</h3>
+              <p data-i18n="home.f6Body">DHCP leases, queues (read-only), IP services, tools router.</p>
+            </article>
+            <article class="feature">
+              <h3 data-i18n="home.f7Title">Hak akses granular</h3>
+              <p data-i18n="home.f7Body">Login app + role: batasi generate, hapus, print, finance per operator (API-enforced).</p>
+            </article>
+            <article class="feature">
+              <h3 data-i18n="home.f8Title">Multi-router &amp; tema</h3>
+              <p data-i18n="home.f8Body">Simpan beberapa router lokal, Switch Router sheet, Light/Dark · ID/EN.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt" id="bandingkan">
+        <div class="wrap">
+          <header class="section-head reveal">
+            <h2 data-i18n="home.vsTitle">mikduck vs MikhMon</h2>
+            <p data-i18n="home.vsLead">
+              Alur hotspot familiar — tapi cara jalan, stack, dan pengalaman beda. Ringkasannya di bawah.
+            </p>
+          </header>
+
+          <div class="versus reveal">
+            <article class="versus-card versus-duck">
+              <div class="versus-top">
+                <img data-brand-icon src="./brand/logo-icon-light.png" alt="" width="40" height="40" />
+                <div>
+                  <h3>mikduck</h3>
+                  <p data-i18n="home.vsDuckTag">Desktop app modern</p>
+                </div>
+              </div>
+              <ul class="versus-points">
+                <li>
+                  <span class="vs-yes" aria-hidden="true"></span>
+                  <span data-i18n="home.vsDuckP1">Installer desktop — tanpa PHP / Apache</span>
+                </li>
+                <li>
+                  <span class="vs-yes" aria-hidden="true"></span>
+                  <span data-i18n="home.vsDuckP2">Dashboard live WebSocket</span>
+                </li>
+                <li>
+                  <span class="vs-yes" aria-hidden="true"></span>
+                  <span data-i18n="home.vsDuckP3">Role operator granular di API</span>
+                </li>
+                <li>
+                  <span class="vs-yes" aria-hidden="true"></span>
+                  <span data-i18n="home.vsDuckP4">Light / Dark · ID &amp; EN bawaan</span>
+                </li>
+              </ul>
+              <a class="btn btn-primary" href="./download.html" data-i18n="home.vsDuckCta">Unduh mikduck</a>
+            </article>
+
+            <div class="versus-divider" aria-hidden="true"><span>vs</span></div>
+
+            <article class="versus-card versus-mon">
+              <div class="versus-top">
+                <img class="versus-mon-logo" src="./assets/mikhmon-logo.png" alt="" width="40" height="40" />
+                <div>
+                  <h3>MikhMon</h3>
+                  <p data-i18n="home.vsMonTag">Web app klasik</p>
+                </div>
+              </div>
+              <ul class="versus-points">
+                <li>
+                  <span class="vs-note" aria-hidden="true"></span>
+                  <span data-i18n="home.vsMonP1">Butuh web server + PHP</span>
+                </li>
+                <li>
+                  <span class="vs-note" aria-hidden="true"></span>
+                  <span data-i18n="home.vsMonP2">Status lewat refresh / polling</span>
+                </li>
+                <li>
+                  <span class="vs-note" aria-hidden="true"></span>
+                  <span data-i18n="home.vsMonP3">Akses admin-style klasik</span>
+                </li>
+                <li>
+                  <span class="vs-note" aria-hidden="true"></span>
+                  <span data-i18n="home.vsMonP4">UI web klasik komunitas</span>
+                </li>
+              </ul>
+              <p class="versus-footnote" data-i18n="home.vsMonNote">Referensi alur hotspot yang sudah matang di komunitas.</p>
+            </article>
+          </div>
+
+          <div class="vs-compare reveal" aria-label="Feature comparison">
+            <div class="vs-compare-head">
+              <span data-i18n="home.vsColFeature">Fitur</span>
+              <span class="vs-compare-brand">
+                <img data-brand-icon src="./brand/logo-icon-light.png" alt="" width="18" height="18" />
+                mikduck
+              </span>
+              <span class="vs-compare-brand">
+                <img src="./assets/mikhmon-logo.png" alt="" width="18" height="18" />
+                MikhMon
+              </span>
+            </div>
+
+            <div class="vs-row is-diff">
+              <div class="vs-row-feat" data-i18n="home.vsR1">Cara jalan</div>
+              <div class="vs-row-cell is-pro">
+                <i class="hgi hgi-stroke hgi-tick-02" aria-hidden="true"></i>
+                <span data-i18n="home.vsR1d">Desktop installer (Electron) — tanpa PHP</span>
+              </div>
+              <div class="vs-row-cell is-soft">
+                <i class="hgi hgi-stroke hgi-minus-sign" aria-hidden="true"></i>
+                <span data-i18n="home.vsR1m">Web + Apache/Nginx + PHP</span>
+              </div>
+            </div>
+            <div class="vs-row">
+              <div class="vs-row-feat" data-i18n="home.vsR2">Generate &amp; print voucher</div>
+              <div class="vs-row-cell is-pro">
+                <i class="hgi hgi-stroke hgi-tick-02" aria-hidden="true"></i>
+                <span data-i18n="home.vsR2d">Ya · Quick Print · template · riwayat</span>
+              </div>
+              <div class="vs-row-cell is-pro">
+                <i class="hgi hgi-stroke hgi-tick-02" aria-hidden="true"></i>
+                <span data-i18n="home.vsR2m">Ya · klasik &amp; matang</span>
+              </div>
+            </div>
+            <div class="vs-row">
+              <div class="vs-row-feat" data-i18n="home.vsR3">Profile hotspot</div>
+              <div class="vs-row-cell is-pro">
+                <i class="hgi hgi-stroke hgi-tick-02" aria-hidden="true"></i>
+                <span data-i18n="home.vsR3d">Ya · Expired / Record / lock MAC</span>
+              </div>
+              <div class="vs-row-cell is-pro">
+                <i class="hgi hgi-stroke hgi-tick-02" aria-hidden="true"></i>
+                <span data-i18n="home.vsR3m">Ya</span>
+              </div>
+            </div>
+            <div class="vs-row is-diff">
+              <div class="vs-row-feat" data-i18n="home.vsR4">User online / kick</div>
+              <div class="vs-row-cell is-pro">
+                <i class="hgi hgi-stroke hgi-tick-02" aria-hidden="true"></i>
+                <span data-i18n="home.vsR4d">Ya · WebSocket live</span>
+              </div>
+              <div class="vs-row-cell is-soft">
+                <i class="hgi hgi-stroke hgi-minus-sign" aria-hidden="true"></i>
+                <span data-i18n="home.vsR4m">Ya · refresh / polling</span>
+              </div>
+            </div>
+            <div class="vs-row">
+              <div class="vs-row-feat" data-i18n="home.vsR5">MAC binding</div>
+              <div class="vs-row-cell is-pro">
+                <i class="hgi hgi-stroke hgi-tick-02" aria-hidden="true"></i>
+                <span data-i18n="home.vsR5d">Binding / Unbinding di UI</span>
+              </div>
+              <div class="vs-row-cell is-pro">
+                <i class="hgi hgi-stroke hgi-tick-02" aria-hidden="true"></i>
+                <span data-i18n="home.vsR5m">Ya</span>
+              </div>
+            </div>
+            <div class="vs-row">
+              <div class="vs-row-feat" data-i18n="home.vsR6">Finance / report jual</div>
+              <div class="vs-row-cell is-pro">
+                <i class="hgi hgi-stroke hgi-tick-02" aria-hidden="true"></i>
+                <span data-i18n="home.vsR6d">Manual + sync script Mikhmon</span>
+              </div>
+              <div class="vs-row-cell is-pro">
+                <i class="hgi hgi-stroke hgi-tick-02" aria-hidden="true"></i>
+                <span data-i18n="home.vsR6m">Ya (pola komunitas)</span>
+              </div>
+            </div>
+            <div class="vs-row is-diff">
+              <div class="vs-row-feat" data-i18n="home.vsR7">Hak akses operator</div>
+              <div class="vs-row-cell is-pro">
+                <i class="hgi hgi-stroke hgi-tick-02" aria-hidden="true"></i>
+                <span data-i18n="home.vsR7d">Role granular di API</span>
+              </div>
+              <div class="vs-row-cell is-soft">
+                <i class="hgi hgi-stroke hgi-minus-sign" aria-hidden="true"></i>
+                <span data-i18n="home.vsR7m">Admin-style klasik</span>
+              </div>
+            </div>
+            <div class="vs-row is-diff">
+              <div class="vs-row-feat" data-i18n="home.vsR8">Tema &amp; bahasa</div>
+              <div class="vs-row-cell is-pro">
+                <i class="hgi hgi-stroke hgi-tick-02" aria-hidden="true"></i>
+                <span data-i18n="home.vsR8d">Light / Dark / System · ID &amp; EN</span>
+              </div>
+              <div class="vs-row-cell is-soft">
+                <i class="hgi hgi-stroke hgi-minus-sign" aria-hidden="true"></i>
+                <span data-i18n="home.vsR8m">UI web klasik</span>
+              </div>
+            </div>
+            <div class="vs-row is-diff">
+              <div class="vs-row-feat" data-i18n="home.vsR9">DHCP / queue / tools</div>
+              <div class="vs-row-cell is-pro">
+                <i class="hgi hgi-stroke hgi-tick-02" aria-hidden="true"></i>
+                <span data-i18n="home.vsR9d">Ya (terintegrasi di app)</span>
+              </div>
+              <div class="vs-row-cell is-soft">
+                <i class="hgi hgi-stroke hgi-minus-sign" aria-hidden="true"></i>
+                <span data-i18n="home.vsR9m">Tergantung setup / plugin</span>
+              </div>
+            </div>
+            <div class="vs-row is-diff">
+              <div class="vs-row-feat" data-i18n="home.vsR10">Stack</div>
+              <div class="vs-row-cell is-pro">
+                <i class="hgi hgi-stroke hgi-tick-02" aria-hidden="true"></i>
+                <span>Electron · React · FastAPI · SQLite</span>
+              </div>
+              <div class="vs-row-cell is-soft">
+                <i class="hgi hgi-stroke hgi-minus-sign" aria-hidden="true"></i>
+                <span>PHP · browser</span>
+              </div>
+            </div>
+          </div>
+
+          <p class="source-line reveal" data-i18n="home.vsFootnote">
+            mikduck menghormati MikhMon sebagai referensi alur hotspot — bukan pengganti wajib.
+          </p>
+          <div class="cta-row reveal" style="margin-top: 1.25rem">
+            <a class="btn btn-primary" href="./download.html" data-i18n="home.vsDuckCta">Unduh mikduck</a>
+            <a class="btn btn-outline" href="./demo.html" target="_blank" rel="noopener" data-i18n="home.ctaDemo">Live demo</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="partners-home">
+        <div class="wrap">
+          <header class="section-head reveal">
+            <h2 data-i18n="home.partnersTitle">Our Partners</h2>
+            <p data-i18n="home.partnersLead">Partner &amp; pendukung yang membantu mikduck tumbuh. Slot masih terbuka.</p>
+          </header>
+          <div class="partner-grid reveal" data-partners>
+            <p class="source-line" data-i18n="home.partnersLoading">Memuat partners…</p>
+          </div>
+          <p class="source-line reveal" data-i18n-html="home.partnersMoreHtml">
+            Lihat semua di
+            <a href="./partners.html">halaman Partners</a>
+            ·
+            <a href="./sponsors.html">jadi sponsor</a>
+          </p>
+        </div>
+      </section>
+
+      <section class="section section-alt">
+        <div class="wrap">
+          <header class="section-head reveal">
+            <h2 data-i18n="home.exploreTitle">Jelajahi situs</h2>
+            <p data-i18n="home.exploreLead">Download, changelog, partners, sponsorship, FAQ, dan lainnya.</p>
+          </header>
+          <div class="home-links reveal">
+            <a class="home-link" href="./download.html">
+              <strong>Download</strong>
+              <span data-i18n="home.linkDl">Unduh versi terbaru — Windows &amp; Linux.</span>
+            </a>
+            <a class="home-link" href="./changelog.html">
+              <strong>Changelog</strong>
+              <span data-i18n="home.linkCl">Catatan rilis tiap versi.</span>
+            </a>
+            <a class="home-link" href="./partners.html">
+              <strong>Our Partners</strong>
+              <span data-i18n="home.linkPartners">Partner &amp; pendukung proyek.</span>
+            </a>
+            <a class="home-link" href="./sponsors.html">
+              <strong>Sponsorship</strong>
+              <span data-i18n="home.linkSponsors">Tier dukungan &amp; kolaborasi.</span>
+            </a>
+            <a class="home-link" href="./timeline.html">
+              <strong data-i18n="nav.timeline">Roadmap</strong>
+              <span data-i18n="home.linkTimeline">Roadmap MVP → stabil → lanjutan.</span>
+            </a>
+            <a class="home-link" href="./faq.html">
+              <strong>FAQ</strong>
+              <span data-i18n="home.linkFaq">Install, router API, dan data lokal.</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div data-site-footer></div>
+    <script src="./i18n.js"></script>
+    <script src="./chrome.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://mikduck.dev/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://mikduck.dev/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://mikduck.dev/?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mikduck.dev/" />
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://mikduck.dev/download.html</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://mikduck.dev/download.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://mikduck.dev/download.html?lang=en" />
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://mikduck.dev/faq.html</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://mikduck.dev/faq.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://mikduck.dev/faq.html?lang=en" />
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://mikduck.dev/demo.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://mikduck.dev/changelog.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mikduck.dev/timeline.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://mikduck.dev/partners.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mikduck.dev/sponsors.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mikduck.dev/pengajuan.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+  </url>
+  <url>
+    <loc>https://mikduck.dev/coffee.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+</urlset>
