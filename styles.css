@@ -17,6 +17,7 @@
   --font: "Outfit", ui-sans-serif, system-ui, sans-serif;
   --display: "Sora", "Outfit", ui-sans-serif, system-ui, sans-serif;
   --wrap: 1120px;
+  --wrap-pad: 1rem;
   --header-h: 64px;
   --theme-color: #f3f6fa;
 }
@@ -91,8 +92,65 @@ a {
 }
 
 .wrap {
-  width: min(100% - 2rem, var(--wrap));
+  width: min(100% - (var(--wrap-pad) * 2), var(--wrap));
   margin-inline: auto;
+}
+
+/* Jumbotron — left text aligns with header .wrap; right visual full-bleed */
+.jumbotron {
+  display: grid;
+  background: #0d1520;
+  width: 100%;
+  grid-template-columns: var(--wrap-pad) minmax(0, 1fr);
+  grid-template-areas:
+    "gutter copy"
+    "visual visual";
+}
+
+.jumbotron-gutter {
+  grid-area: gutter;
+  background: var(--brand);
+}
+
+.jumbotron-copy {
+  grid-area: copy;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0;
+  padding: clamp(1.5rem, 4vw, 2.5rem) var(--wrap-pad) clamp(1.5rem, 4vw, 2.5rem) 0;
+  background: var(--brand);
+  color: #fff;
+  min-height: 0;
+}
+
+.jumbotron-copy-inner {
+  width: 100%;
+  max-width: 22rem;
+  margin-inline: 0;
+}
+
+@media (min-width: 960px) {
+  .jumbotron {
+    /* gutter (= wrap left) | copy | visual → right edge */
+    grid-template-columns:
+      max(var(--wrap-pad), calc((100% - min(100% - (var(--wrap-pad) * 2), var(--wrap))) / 2))
+      minmax(16rem, 22rem)
+      minmax(0, 1fr);
+    grid-template-areas: "gutter copy visual";
+    min-height: 420px;
+    height: min(560px, calc(100svh - var(--header-h) - 1rem));
+    max-height: calc(100svh - var(--header-h) - 0.5rem);
+  }
+
+  .jumbotron-copy {
+    padding: clamp(1.75rem, 3.5vh, 2.75rem) 1.25rem clamp(1.75rem, 3.5vh, 2.75rem) 0;
+  }
+
+  .jumbotron-copy-inner {
+    max-width: min(100%, 22rem);
+  }
 }
 
 /* Header */
@@ -818,58 +876,7 @@ img.dl-os-icon {
   height: 100%;
 }
 
-/* Jumbotron — text ~40%, visual peeks (no oversized dark card) */
-.jumbotron {
-  display: grid;
-  background: #0d1520;
-  width: 100%;
-}
-
-@media (min-width: 960px) {
-  .jumbotron {
-    grid-template-columns: minmax(260px, 0.95fr) minmax(0, 1.25fr);
-    min-height: 420px;
-    height: min(560px, calc(100svh - var(--header-h) - 1rem));
-    max-height: calc(100svh - var(--header-h) - 0.5rem);
-  }
-}
-
-@media (min-width: 1280px) {
-  .jumbotron {
-    grid-template-columns: minmax(300px, 0.9fr) minmax(0, 1.2fr);
-  }
-}
-
-.jumbotron-copy {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 0;
-  padding: clamp(1.5rem, 4vw, 2.5rem) clamp(1.5rem, 4vw, 2.75rem);
-  background: var(--brand);
-  color: #fff;
-  min-height: 0;
-}
-
-.jumbotron-copy-inner {
-  width: 100%;
-  max-width: 20rem;
-  margin-inline: auto;
-}
-
-@media (min-width: 960px) {
-  .jumbotron-copy {
-    align-items: flex-end;
-    padding-inline: clamp(1.5rem, 3vw, 2.5rem) clamp(1.25rem, 2.5vw, 2rem);
-  }
-
-  .jumbotron-copy-inner {
-    margin-inline: 0;
-    max-width: min(100%, 20rem);
-  }
-}
-
+/* Jumbotron typography / CTA (layout rules live near .wrap) */
 .jumbotron-brand {
   margin: 0 0 1.1rem;
 }
@@ -977,6 +984,7 @@ img.dl-os-icon {
 }
 
 .jumbotron-visual {
+  grid-area: visual;
   position: relative;
   display: block;
   min-height: 220px;
@@ -1065,26 +1073,26 @@ img.dl-os-icon {
   display: none;
 }
 
-/* Gradient overlay on the RIGHT of the shot (blur wash → solid) */
+/* Narrow gradient overlay on the RIGHT of the shot */
 .shot-fade {
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
-  width: min(48%, 420px);
+  width: min(18%, 140px);
   z-index: 3;
   pointer-events: none;
   background: linear-gradient(
     90deg,
     rgba(13, 21, 32, 0) 0%,
-    rgba(13, 21, 32, 0.4) 24%,
-    rgba(13, 21, 32, 0.82) 55%,
+    rgba(13, 21, 32, 0.45) 40%,
+    rgba(13, 21, 32, 0.88) 72%,
     #0d1520 100%
   );
-  -webkit-backdrop-filter: blur(20px);
-  backdrop-filter: blur(20px);
-  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 32%, #000 100%);
-  mask-image: linear-gradient(90deg, transparent 0%, #000 32%, #000 100%);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 40%, #000 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 40%, #000 100%);
 }
 
 .shot-carousel::after {
@@ -1176,13 +1184,13 @@ img.dl-os-icon {
   }
 
   .shot-fade {
-    width: min(46%, 400px);
+    width: min(16%, 130px);
   }
 }
 
 @media (min-width: 1280px) {
   .shot-fade {
-    width: min(44%, 460px);
+    width: min(14%, 150px);
   }
 }
 
@@ -1198,7 +1206,7 @@ img.dl-os-icon {
   }
 
   .shot-fade {
-    width: min(40%, 220px);
+    width: min(22%, 110px);
   }
 
   .shot-carousel-ui {
