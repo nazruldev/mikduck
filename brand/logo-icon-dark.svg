@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="mikduck">
+  <rect width="64" height="64" fill="#0F1419"/>
+  <path fill="#E8EEF5" d="M10 42c0-10 6-18 14.5-22.5C27 10 36 4.5 44.5 7c4 1.2 7.2 4.5 8.3 8.5 6.2 2 10.7 8 10.7 15.2 0 10-8.2 17.3-18.2 17.3H24C14.5 48 10 44.8 10 42z"/>
+  <path fill="#F9A826" d="M50 27.5c4.2.9 8.5 2 10.5.9-1.9 3.1-5.9 5.2-10.5 5.2v-6.1z"/>
+  <circle cx="46.5" cy="24.5" r="2.4" fill="#0F1419"/>
+</svg>

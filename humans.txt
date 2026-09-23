@@ -1,0 +1,6 @@
+# mikduck
+# Open-source MikroTik Hotspot Manager
+# https://mikduck.dev
+# Contact: mikduck@nusadev.online
+# GitHub: https://github.com/mikduck/mikduck
+# Standards: HTML5, Open Graph, Schema.org, sitemap.xml

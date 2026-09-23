@@ -1,0 +1,37 @@
+{
+  "name": "mikduck — MikroTik Hotspot Manager",
+  "short_name": "mikduck",
+  "description": "Aplikasi desktop open source untuk mengelola hotspot MikroTik: voucher, print, profile, dan dashboard realtime. Alternatif modern MikhMon.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0d1520",
+  "theme_color": "#0d1520",
+  "lang": "id",
+  "dir": "ltr",
+  "categories": ["utilities", "productivity", "business"],
+  "icons": [
+    {
+      "src": "./brand/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "./brand/logo-icon-light.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./brand/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "./brand/logo-icon-dark.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "monochrome"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+# mikduck — https://mikduck.dev
+User-agent: *
+Allow: /
+
+Sitemap: https://mikduck.dev/sitemap.xml

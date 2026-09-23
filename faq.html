@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="id" prefix="og: https://ogp.me/ns#">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title data-i18n-title="meta.faqTitle">FAQ mikduck — Install, Connect API MikroTik &amp; Beda dengan MikhMon</title>
+    <meta
+      name="description"
+      data-i18n-content="meta.faqDesc"
+      content="Pertanyaan umum mikduck: cara install, connect RouterOS API port 8728, penyimpanan data lokal SQLite, apakah gratis/AGPL-3.0, dan perbedaan dengan MikhMon PHP."
+    />
+    <meta name="keywords" content="faq mikduck, cara install mikduck, connect api mikrotik 8728, beda mikduck mikhmon, lupa password mikduck" />
+    <meta name="author" content="mikduck" />
+    <meta name="creator" content="mikduck" />
+    <meta name="publisher" content="mikduck" />
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+    <meta name="googlebot" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+    <meta name="bingbot" content="index,follow" />
+    <meta name="theme-color" content="#0d1520" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="application-name" content="mikduck" />
+    <meta name="apple-mobile-web-app-title" content="mikduck" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <link rel="canonical" href="https://mikduck.dev/faq.html" />
+    <link rel="alternate" hreflang="id" href="https://mikduck.dev/faq.html" />
+    <link rel="alternate" hreflang="en" href="https://mikduck.dev/faq.html?lang=en" />
+    <link rel="alternate" hreflang="x-default" href="https://mikduck.dev/faq.html" />
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://mikduck.dev/sitemap.xml" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="mikduck" />
+    <meta property="og:locale" content="id_ID" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:url" content="https://mikduck.dev/faq.html" />
+    <meta property="og:title" content="FAQ mikduck — Install, Connect API MikroTik &amp; Beda dengan MikhMon" />
+    <meta property="og:description" content="Pertanyaan umum mikduck: cara install, connect RouterOS API port 8728, penyimpanan data lokal SQLite, apakah gratis/AGPL-3.0, dan perbedaan dengan MikhMon PHP." />
+    <meta property="og:image" content="https://mikduck.dev/assets/og-cover.png" />
+    <meta property="og:image:secure_url" content="https://mikduck.dev/assets/og-cover.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:alt" content="mikduck dashboard — MikroTik hotspot manager" />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="720" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="FAQ mikduck — Install, Connect API MikroTik &amp; Beda dengan MikhMon" />
+    <meta name="twitter:description" content="Pertanyaan umum mikduck: cara install, connect RouterOS API port 8728, penyimpanan data lokal SQLite, apakah gratis/AGPL-3.0, dan perbedaan dengan MikhMon PHP." />
+    <meta name="twitter:image" content="https://mikduck.dev/assets/og-cover.png" />
+    <meta name="twitter:image:alt" content="mikduck dashboard — MikroTik hotspot manager" />
+
+    <link rel="icon" href="./brand/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="./brand/apple-touch-icon.png" />
+    <link rel="manifest" href="./site.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="./theme-boot.js"></script>
+    <link rel="stylesheet" href="./styles.css" />
+
+    <script type="application/ld+json">
+{
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "mikduck itu apa?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Aplikasi desktop untuk mengelola hotspot MikroTik (voucher, profile, user aktif, print, finance) lewat RouterOS API. Mirip alur MikhMon, tapi tanpa web server PHP."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Apakah harus bayar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tidak. mikduck open source dengan lisensi AGPL-3.0. Donasi kopi opsional di halaman Coffee."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Bedanya dengan MikhMon?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "MikhMon berjalan di PHP + web server. mikduck adalah app desktop (Electron) dengan backend FastAPI dan UI React, plus hak akses granular dan dashboard WebSocket."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kenapa gagal connect ke MikroTik?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cek IP/host, user/password, firewall, dan pastikan service API aktif (/ip service enable api). Default port biasanya 8728. PC harus bisa ping/reach router."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Data disimpan di mana?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Lokal di perangkat Anda (SQLite). Di Windows biasanya di folder AppData aplikasi. Password router bisa dienkripsi lewat penyimpanan aman Electron."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Apakah ini Radius / User Manager?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Bukan. mikduck mengelola hotspot user lokal di router (seperti pola MikhMon), bukan server Radius terpisah."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Lupa password login aplikasi?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ada skrip reset password lokal di repo (reset-password). Jangan share database ke orang lain jika berisi kredensial tersimpan."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Linux sudah tersedia?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Target unduhan Linux ada di halaman Download. Packaging Linux terus dilanjutkan di roadmap — lihat Roadmap."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Mau minta fitur baru?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Isi formulir di halaman Pengajuan atau buat issue di GitHub. Semakin jelas use-case, semakin mudah diprioritaskan."
+          }
+        }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+{
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://mikduck.dev"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "FAQ",
+          "item": "https://mikduck.dev/faq.html"
+        }
+      ]
+    }
+    </script>
+  </head>
+  <body data-page="faq">
+    <a class="skip" href="#main" data-i18n="common.skip">Lewati ke konten</a>
+
+    <div data-site-chrome></div>
+
+    <main id="main">
+      <div class="page-hero">
+        <div class="wrap">
+          <p class="eyebrow" data-i18n="faq.eyebrow">Bantuan</p>
+          <h1 data-i18n="faq.title">FAQ</h1>
+          <p data-i18n="faq.lead">
+            Jawaban singkat soal instalasi, koneksi router, data, dan posisi mikduck dibanding MikhMon.
+          </p>
+        </div>
+      </div>
+
+      <section class="section">
+        <div class="wrap">
+          <div class="faq-list reveal">
+            <details class="faq-item" open>
+              <summary data-i18n="faq.q1">mikduck itu apa?</summary>
+              <p data-i18n="faq.a1">
+                Aplikasi desktop untuk mengelola hotspot MikroTik (voucher, profile, user aktif, print, finance) lewat
+                RouterOS API. Mirip alur MikhMon, tapi tanpa web server PHP.
+              </p>
+            </details>
+            <details class="faq-item">
+              <summary data-i18n="faq.q2">Apakah harus bayar?</summary>
+              <p data-i18n="faq.a2">Tidak. mikduck open source dengan lisensi AGPL-3.0. Donasi kopi opsional di halaman Coffee.</p>
+            </details>
+            <details class="faq-item">
+              <summary data-i18n="faq.q3">Bedanya dengan MikhMon?</summary>
+              <p data-i18n="faq.a3">
+                MikhMon berjalan di PHP + web server. mikduck adalah app desktop (Electron) dengan backend FastAPI dan UI
+                React, plus hak akses granular dan dashboard WebSocket.
+              </p>
+            </details>
+            <details class="faq-item">
+              <summary data-i18n="faq.q4">Kenapa gagal connect ke MikroTik?</summary>
+              <p data-i18n="faq.a4">
+                Cek IP/host, user/password, firewall, dan pastikan service API aktif (`/ip service enable api`). Default
+                port biasanya 8728. PC harus bisa ping/reach router.
+              </p>
+            </details>
+            <details class="faq-item">
+              <summary data-i18n="faq.q5">Data disimpan di mana?</summary>
+              <p data-i18n="faq.a5">
+                Lokal di perangkat Anda (SQLite). Di Windows biasanya di folder AppData aplikasi. Password router bisa
+                dienkripsi lewat penyimpanan aman Electron.
+              </p>
+            </details>
+            <details class="faq-item">
+              <summary data-i18n="faq.q6">Apakah ini Radius / User Manager?</summary>
+              <p data-i18n="faq.a6">
+                Bukan. mikduck mengelola hotspot user lokal di router (seperti pola MikhMon), bukan server Radius terpisah.
+              </p>
+            </details>
+            <details class="faq-item">
+              <summary data-i18n="faq.q7">Lupa password login aplikasi?</summary>
+              <p data-i18n="faq.a7">
+                Ada skrip reset password lokal di repo (`reset-password`). Jangan share database ke orang lain jika berisi
+                kredensial tersimpan.
+              </p>
+            </details>
+            <details class="faq-item">
+              <summary data-i18n="faq.q8">Linux sudah tersedia?</summary>
+              <p data-i18n="faq.a8">
+                Target unduhan Linux ada di halaman Download. Packaging Linux terus dilanjutkan di roadmap — lihat Roadmap.
+              </p>
+            </details>
+            <details class="faq-item">
+              <summary data-i18n="faq.q9">Mau minta fitur baru?</summary>
+              <p data-i18n-html="faq.a9Html">
+                Isi formulir di <a href="./pengajuan.html">Pengajuan</a> atau buat issue di GitHub. Semakin jelas use-case,
+                semakin mudah diprioritaskan.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div data-site-footer></div>
+    <script src="./i18n.js"></script>
+    <script src="./chrome.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>

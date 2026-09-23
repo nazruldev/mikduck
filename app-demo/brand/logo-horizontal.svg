@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 64" fill="none" role="img" aria-label="mikduck">
+  <!-- Light horizontal: filled blue duck + blue wordmark + yellow i-dot -->
+  <g transform="translate(0,0)">
+    <path
+      fill="#1A4B8F"
+      d="M4 46c0-12 7.2-21.2 16.8-25.6C23.5 10.4 32.8 4 42.2 6.4c4.5 1.2 8 4.6 9.2 8.9 6.8 2.2 11.6 8.8 11.6 16.6 0 11.1-9 19.1-20 19.1H20.2C10.8 51 4 47.6 4 46z"
+    />
+    <path
+      fill="#F9A826"
+      d="M49.5 27.5c4.8 1 9.5 2.3 11.8 1.1-2.2 3.5-6.6 5.8-11.8 5.8V27.5z"
+    />
+    <circle cx="45.2" cy="24.2" r="2.5" fill="#0F1419"/>
+  </g>
+  <text x="78" y="43" font-family="Poppins, Segoe UI, system-ui, sans-serif" font-size="30" font-weight="700" fill="#1A4B8F">m</text>
+  <text x="102" y="43" font-family="Poppins, Segoe UI, system-ui, sans-serif" font-size="30" font-weight="700" fill="#1A4B8F">i</text>
+  <circle cx="107.2" cy="18.5" r="3.2" fill="#F9A826"/>
+  <text x="112" y="43" font-family="Poppins, Segoe UI, system-ui, sans-serif" font-size="30" font-weight="700" fill="#1A4B8F">kduck</text>
+</svg>
