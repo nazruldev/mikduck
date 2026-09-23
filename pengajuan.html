@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id" prefix="og: https://ogp.me/ns#">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title data-i18n-title="meta.pengajuanTitle">Pengajuan Fitur &amp; Bug — mikduck Hotspot MikroTik</title>
+    <meta
+      name="description"
+      data-i18n-content="meta.pengajuanDesc"
+      content="Ajukan fitur baru, laporkan bug, atau minta template voucher untuk mikduck. Form terhubung ke GitHub Issues proyek open source hotspot MikroTik."
+    />
+    <meta name="keywords" content="pengajuan mikduck, request fitur, report bug mikrotik hotspot" />
+    <meta name="author" content="mikduck" />
+    <meta name="creator" content="mikduck" />
+    <meta name="publisher" content="mikduck" />
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+    <meta name="googlebot" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+    <meta name="bingbot" content="index,follow" />
+    <meta name="theme-color" content="#0d1520" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="application-name" content="mikduck" />
+    <meta name="apple-mobile-web-app-title" content="mikduck" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <link rel="canonical" href="https://mikduck.dev/pengajuan.html" />
+    <link rel="alternate" hreflang="id" href="https://mikduck.dev/pengajuan.html" />
+    <link rel="alternate" hreflang="en" href="https://mikduck.dev/pengajuan.html?lang=en" />
+    <link rel="alternate" hreflang="x-default" href="https://mikduck.dev/pengajuan.html" />
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://mikduck.dev/sitemap.xml" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="mikduck" />
+    <meta property="og:locale" content="id_ID" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:url" content="https://mikduck.dev/pengajuan.html" />
+    <meta property="og:title" content="Pengajuan Fitur &amp; Bug — mikduck Hotspot MikroTik" />
+    <meta property="og:description" content="Ajukan fitur baru, laporkan bug, atau minta template voucher untuk mikduck. Form terhubung ke GitHub Issues proyek open source hotspot MikroTik." />
+    <meta property="og:image" content="https://mikduck.dev/assets/og-cover.png" />
+    <meta property="og:image:secure_url" content="https://mikduck.dev/assets/og-cover.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:alt" content="mikduck dashboard — MikroTik hotspot manager" />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="720" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Pengajuan Fitur &amp; Bug — mikduck Hotspot MikroTik" />
+    <meta name="twitter:description" content="Ajukan fitur baru, laporkan bug, atau minta template voucher untuk mikduck. Form terhubung ke GitHub Issues proyek open source hotspot MikroTik." />
+    <meta name="twitter:image" content="https://mikduck.dev/assets/og-cover.png" />
+    <meta name="twitter:image:alt" content="mikduck dashboard — MikroTik hotspot manager" />
+
+    <link rel="icon" href="./brand/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="./brand/apple-touch-icon.png" />
+    <link rel="manifest" href="./site.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="./theme-boot.js"></script>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body data-page="pengajuan">
+    <a class="skip" href="#main" data-i18n="common.skip">Lewati ke konten</a>
+
+    <div data-site-chrome></div>
+
+    <main id="main">
+      <div class="page-hero">
+        <div class="wrap">
+          <p class="eyebrow" data-i18n="pengajuan.eyebrow">Komunitas</p>
+          <h1 data-i18n="pengajuan.title">Pengajuan</h1>
+          <p data-i18n="pengajuan.lead">
+            Usulkan fitur, laporkan bug, atau minta perbaikan alur. Form membuka draft issue GitHub agar mudah dilacak.
+          </p>
+        </div>
+      </div>
+
+      <section class="section" id="form">
+        <div class="wrap">
+          <form class="form reveal" data-pengajuan-form>
+            <div class="field">
+              <label for="jenis" data-i18n="pengajuan.jenis">Jenis</label>
+              <select id="jenis" name="jenis" required>
+                <option value="Fitur" data-i18n="pengajuan.optFitur">Permintaan fitur</option>
+                <option value="Bug" data-i18n="pengajuan.optBug">Laporan bug</option>
+                <option value="Template" data-i18n="pengajuan.optTemplate">Template voucher / login</option>
+                <option value="Dokumentasi" data-i18n="pengajuan.optDocs">Dokumentasi</option>
+                <option value="Lainnya" data-i18n="pengajuan.optOther">Lainnya</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="judul" data-i18n="pengajuan.judul">Judul singkat</label>
+              <input
+                id="judul"
+                name="judul"
+                type="text"
+                maxlength="120"
+                required
+                data-i18n-placeholder="pengajuan.judulPh"
+                placeholder="Contoh: Export laporan finance ke CSV"
+              />
+            </div>
+            <div class="field">
+              <label for="detail" data-i18n="pengajuan.detail">Detail</label>
+              <textarea
+                id="detail"
+                name="detail"
+                required
+                data-i18n-placeholder="pengajuan.detailPh"
+                placeholder="Jelaskan kebutuhan, langkah reproduksi (untuk bug), atau contoh yang diharapkan."
+              ></textarea>
+            </div>
+            <div class="field">
+              <label for="kontak" data-i18n="pengajuan.kontak">Kontak (opsional)</label>
+              <input
+                id="kontak"
+                name="kontak"
+                type="text"
+                maxlength="120"
+                data-i18n-placeholder="pengajuan.kontakPh"
+                placeholder="Telegram / email"
+              />
+            </div>
+            <p class="form-hint" data-i18n="pengajuan.hint">Kirim akan membuka GitHub Issues dengan judul &amp; isi yang sudah terisi.</p>
+            <div class="form-ok" data-form-ok data-i18n="pengajuan.ok">Draft issue dibuka di tab baru. Lanjutkan submit di GitHub.</div>
+            <button class="btn btn-primary" type="submit" data-i18n="pengajuan.submit">Buat pengajuan</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <div data-site-footer></div>
+    <script src="./i18n.js"></script>
+    <script src="./chrome.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>

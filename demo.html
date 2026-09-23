@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark" prefix="og: https://ogp.me/ns#">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title data-i18n-title="meta.demoTitle">Live Demo mikduck — Coba UI Hotspot Manager MikroTik</title>
+    <meta
+      name="description"
+      data-i18n-content="meta.demoDesc"
+      content="Coba antarmuka mikduck secara interaktif tanpa router: dashboard, voucher, dan alur hotspot manager ala MikhMon yang modern."
+    />
+    <meta name="keywords" content="demo mikduck, coba hotspot manager, preview UI mikrotik voucher" />
+    <meta name="author" content="mikduck" />
+    <meta name="creator" content="mikduck" />
+    <meta name="publisher" content="mikduck" />
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+    <meta name="googlebot" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+    <meta name="bingbot" content="index,follow" />
+    <meta name="theme-color" content="#0a0c0e" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="application-name" content="mikduck" />
+    <meta name="apple-mobile-web-app-title" content="mikduck" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <link rel="canonical" href="https://mikduck.dev/demo.html" />
+    <link rel="alternate" hreflang="id" href="https://mikduck.dev/demo.html" />
+    <link rel="alternate" hreflang="en" href="https://mikduck.dev/demo.html?lang=en" />
+    <link rel="alternate" hreflang="x-default" href="https://mikduck.dev/demo.html" />
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://mikduck.dev/sitemap.xml" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="mikduck" />
+    <meta property="og:locale" content="id_ID" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:url" content="https://mikduck.dev/demo.html" />
+    <meta property="og:title" content="Live Demo mikduck — Coba UI Hotspot Manager MikroTik" />
+    <meta property="og:description" content="Coba antarmuka mikduck secara interaktif tanpa router: dashboard, voucher, dan alur hotspot manager ala MikhMon yang modern." />
+    <meta property="og:image" content="https://mikduck.dev/assets/og-cover.png" />
+    <meta property="og:image:secure_url" content="https://mikduck.dev/assets/og-cover.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:alt" content="mikduck dashboard — MikroTik hotspot manager" />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="720" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Live Demo mikduck — Coba UI Hotspot Manager MikroTik" />
+    <meta name="twitter:description" content="Coba antarmuka mikduck secara interaktif tanpa router: dashboard, voucher, dan alur hotspot manager ala MikhMon yang modern." />
+    <meta name="twitter:image" content="https://mikduck.dev/assets/og-cover.png" />
+    <meta name="twitter:image:alt" content="mikduck dashboard — MikroTik hotspot manager" />
+
+    <link rel="icon" href="./brand/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="./brand/apple-touch-icon.png" />
+    <link rel="manifest" href="./site.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./demo.css" />
+  </head>
+  <body class="demo-body" data-page="demo">
+    <div class="demo-banner">
+      <a class="brand" href="./index.html">
+        <img class="brand-logo-img" id="banner-logo" src="./brand/logo-horizontal-light.svg" alt="mikduck" height="22" />
+      </a>
+      <div class="demo-banner-meta">
+        <span class="live-pill"><span class="live-dot"></span> <span data-i18n="nav.demo">Live demo</span></span>
+        <span class="demo-hint" data-i18n="demo.hint">Data fiktif · tanpa router</span>
+      </div>
+      <div class="demo-banner-actions">
+        <a class="demo-btn demo-btn-ghost" href="./index.html" data-i18n="demo.back">Kembali</a>
+        <a class="demo-btn demo-btn-primary" href="./download.html" data-i18n="demo.download">Unduh app</a>
+      </div>
+    </div>
+
+    <div class="demo-app" id="demo-app">
+      <header class="demo-header">
+        <button type="button" class="demo-menu-btn" id="demo-menu-btn" aria-label="Menu">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+        <a class="demo-brand-mark" href="./index.html">
+          <img id="app-logo" src="./brand/logo-horizontal-light.svg" alt="mikduck" height="26" />
+        </a>
+        <div class="demo-header-right">
+          <div class="pref-group" role="group" data-i18n-aria="common.lang" aria-label="Bahasa">
+            <button type="button" class="pref-btn" data-set-lang="id" aria-pressed="false">ID</button>
+            <button type="button" class="pref-btn" data-set-lang="en" aria-pressed="false">EN</button>
+          </div>
+          <div class="pref-group" role="group" aria-label="Tema">
+            <button type="button" class="pref-btn" data-set-theme="light" aria-pressed="false">Light</button>
+            <button type="button" class="pref-btn" data-set-theme="dark" aria-pressed="true">Dark</button>
+          </div>
+          <span class="demo-status">
+            <span class="demo-status-dot"></span>
+            <span data-i18n="demo.connected">Terhubung</span>
+          </span>
+          <button type="button" class="demo-btn demo-btn-sm" disabled title="Demo only">Logout</button>
+        </div>
+      </header>
+
+      <button type="button" class="demo-backdrop" id="demo-backdrop" aria-label="Close menu"></button>
+
+      <aside class="demo-aside" id="demo-aside" data-i18n-aria="demo.navLabel" aria-label="Navigasi demo">
+        <div class="demo-router-card">
+          <strong id="router-name">WiFi-Demo-Cafe</strong>
+          <span>192.168.88.1</span>
+        </div>
+        <nav class="demo-nav" id="demo-nav">
+          <!-- filled by demo.js -->
+        </nav>
+      </aside>
+
+      <main class="demo-main" id="demo-main">
+        <!-- panels filled by demo.js -->
+      </main>
+    </div>
+
+    <script src="./i18n.js"></script>
+    <script src="./demo.js"></script>
+  </body>
+</html>
